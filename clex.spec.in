@@ -1,0 +1,52 @@
+#
+# CLEX File Manager RPM spec file
+#
+Summary: A free file manager with a full-screen user interface
+Name: clex
+Version: @VERSION@
+Release: @RPMRELEASE@%{?dist}
+License: GPLv2+
+Group: Applications/File
+Source: clex-@VERSION@.tar.gz
+URL: https://github.com/xitop/clex
+Requires: ncurses
+BuildRequires: ncurses-devel
+BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
+%changelog
+# empty
+
+%description
+CLEX (pronounced KLEKS) is a file manager with a full-screen user 
+interface. It displays directory contents including the file status 
+details and provides features like command history, filename insertion, 
+or name completion in order to help users to create commands to be 
+executed by the shell. 
+
+CLEX is a versatile tool for system administrators and all users that 
+utilize the enormous power of the command line. Its unique one-panel 
+user interface enhances productivity and lessens the probability of 
+mistake. There are no built-in commands, CLEX is an add-on to your 
+favorite shell. 
+
+%prep
+%setup -q
+
+%build
+./configure --bindir=/usr/bin --mandir=/usr/share/man  --sysconfdir=/etc
+make
+
+%install
+rm -rf %{buildroot}
+make install DESTDIR=%{buildroot}
+
+%files
+%defattr(-,root,root,-)
+%{_bindir}/clex
+%{_bindir}/cfg-clex
+%{_bindir}/kbd-test
+%{_mandir}/man1/clex.1.gz
+%{_mandir}/man1/cfg-clex.1.gz
+%{_mandir}/man1/kbd-test.1.gz
+
+%clean
+rm -rf %{buildroot}

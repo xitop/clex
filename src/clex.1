@@ -1,0 +1,47 @@
+.TH CLEX 1
+.SH "NAME"
+clex \- file manager
+.SH "SYNOPSIS"
+.B clex
+.RI [ option ]
+.SH "DESCRIPTION"
+CLEX is an interactive full-screen file manager. Refer to the
+on-line help for more information about usage.
+.SH OPTIONS
+.TP
+.BI \-\-log " logfile"
+Append log information to the
+.IR logfile .
+.TP
+.B \-\-version
+Display program version and some basic information and exit.
+.TP
+.B \-\-help
+Display help and exit.
+.SH "ENVIRONMENT"
+CLEX makes use of the following environment variables:
+.TP
+.I SHELL
+Determines the program to execute the commands. If not set, the shell from the
+user database is used instead.
+.TP
+.I HOME
+User's home directory. If not set, the directory from the
+user database is used instead.
+.SH "FILES"
+.TP
+.I ~/.config/clex/config
+configuration file
+.TP
+.I ~/.config/clex/bookmarks
+bookmarks file
+.TP
+.I ~/.config/clex/options
+options file
+.SH "SEE ALSO"
+.IR cfg-clex (1)
+.SH "AUTHOR"
+Copyright (C) 2001-2022 Vlado Potisk
+.SH "NOTES"
+CLEX web page:
+.B https://github.com/xitop/clex

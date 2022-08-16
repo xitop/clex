@@ -1,0 +1,29 @@
+.TH CFG-CLEX 1
+.SH "NAME"
+cfg-clex \- CLEX configuration utility
+.SH "SYNOPSIS"
+.B cfg-clex
+.SH "DESCRIPTION"
+.B cfg-clex
+builds the initial configuration file for the CLEX file manager or 
+migrates existing files from an older version.
+.PP
+Once the configuration file is created, all further changes should
+be made using the CLEX's configuration panel.
+.SH "ENVIRONMENT"
+.B cfg-clex
+makes use of the following environment variables:
+.TP
+.I PAGER
+Preferred pager for the view command. If not set,
+.I less
+is chosen if available, otherwise
+.IR more .
+.TP
+.I EDITOR
+Preferred editor for the edit command. If not set,
+.I vim
+is chosen if available, otherwise
+.IR vi .
+.SH "SEE ALSO"
+.IR clex (1)

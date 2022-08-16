@@ -1,0 +1,11 @@
+extern const char *base_name(const char *);
+extern int checkabs(const char *);
+extern void *emalloc(size_t);
+extern void *erealloc(void *, size_t);
+extern char *estrdup(const char *);
+extern wchar_t *ewcsdup(const wchar_t *);
+extern void efree(void *);
+extern void pathname_set_directory(const char *);
+extern char *pathname_join(const char *);
+extern ssize_t read_fd(int, char *, size_t);
+extern unsigned int jshash(const wchar_t *);

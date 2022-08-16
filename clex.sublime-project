@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"path": "src",
+			"name": "source code",
+            "file_exclude_patterns": ["*.o"],
+            "folder_exclude_patterns": [".deps"]
+		}
+	]
+}

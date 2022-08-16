@@ -1,0 +1,10 @@
+extern void kb_reconfig(void);
+extern void layout_reconfig(void);
+extern void td_fmt_reconfig(void);
+extern void list_initialize(void);
+extern void list_directory(void);
+extern int  list_directory_cond(int);
+extern void list_both_directories(void);
+extern void filepanel_reset(void);
+extern void file_panel_data(void);
+extern int  stat2type(mode_t, uid_t);

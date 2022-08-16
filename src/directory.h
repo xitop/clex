@@ -1,0 +1,12 @@
+extern void dir_initialize(void);
+extern void dir_reconfig(void);
+extern int dir_main_prepare(void);
+extern void dir_panel_data(void);
+extern int dir_split_prepare(void);
+extern const char *dir_split_dir(int);
+extern int dir_cmp(const char *, const char *);
+extern void filepos_save(void);
+extern void filepos_set(void);
+extern void cx_dir_tab(void);
+extern void cx_dir_enter(void);
+extern void cx_dir_mouse(void);

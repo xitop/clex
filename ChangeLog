@@ -1,0 +1,251 @@
+* * * CLEX Revision History * * *
+
+4.7 released on 15-AUG-2022
+
+  Important announcement:
+    * CLEX has moved to GitHub, all links were updated. The
+      new project home is https://github.com/xitop/clex
+
+  Problems fixed:
+    * Fixed a build issue on MacOS. It was related to wide
+      characters in the ncurses library. Patch provided by
+      a maintainer from MacPorts.
+
+
+4.6.patch10 released on 30-SEP-2020
+
+  Problems fixed:
+    * Under certain rare circumstances (more than 384 different
+      directories visited) the displayed directory names did not
+      match the names stored in the panel.
+
+  New or improved functionality:
+    * The sort panel actions are described more accurately.
+    * Pressing ctrl-C now leaves the config panel.
+
+
+4.6.patch9 released on 08-JUN-2018
+
+  New or improved functionality:
+    * Support for GPM mouse and other mice was added
+      when compiled with NCURSES version 6.0 or newer.
+
+
+4.6.patch8 released on 05-MAY-2018
+
+  Problems fixed:
+    * Some typos were corrected. Thanks to Tobias Frost
+      for sending a patch.
+
+  New or improved functionality:
+    * The 'configure' script was modified so that CLEX compiles
+      without warnings with recent gcc and glibc versions.
+
+
+4.6.patch7 released on 23-JUN-2017
+
+  Problems fixed:
+    * Non-ASCII - but printable - Unicode characters are now
+      allowed in the xterm window title.
+    * A backtick character inside of double quotes is now
+      properly quoted.
+    * Attempts to insert an Alt-key combination into the
+      editing line (i.e. Ctrl-V Alt-X) invoked the function
+      bound to that Alt-key combination. This is now fixed.
+
+  New or improved functionality:
+    * Mouse clicks on the top (bottom) frame scroll the panel
+      one page up (down) respectively. Panel filter control
+      with a mouse was removed in order not to interfere with
+      the new page down function.
+    * The file rename function does not replace spaces
+      with underscores.
+    * The Unicode non-breaking space (NBSP) is marked as a special
+      character. Shells do not treat this character as a separator.
+      Commands containing NBSP written by mistake usually fail
+      and the error is not easy to find.
+    * User and group names up to 16 characters are displayed
+      without truncating in the file panel. (The limit was
+      9 characters)
+    * User names are never truncated in the user panel.
+    * The RPM spec file is now included in the source code
+      tarball. Previously this file has to be downloaded
+      separately or built from a provided template. This extra
+      step is now unnecessary and an RPM package can be built
+      simply with:  rpmbuild -tb clex.X.Y.Z.tar.gz
+
+
+4.6.patch6 released on 31-AUG-2013
+
+  Problems fixed:
+     * Several wide character buffer sizes were computed in
+       incorrect units. No buffer overflows were actually
+       occurring, but such code is not usable if compiled with
+       protection against overflows, e.g. with gcc and
+       FORTIFY_SOURCE=2. Problem noted and a fix proposed by
+       Rudolf Polzer.
+     * A bug in the file I/O error reporting code of the
+       directory compare function was found by Rudolf Polzer.
+
+  New or improved functionality:
+     * New setting in the sort panel: hidden files can be
+       excluded from the file list.
+
+
+4.6.patch5 released on 19-JUL-2011
+
+  Problems fixed:
+     * Some keys did not work in the log panel's filter.
+
+
+4.6.4 released on 21-MAY-2011
+
+  Problems fixed:
+     * Name completion did not expand a single tilde as a home 
+       directory.
+     * A mouseclick on a certain screen area of the help panel
+       could lead to a crash.
+
+  New or improved functionality:
+     * The English documentation was proofread and corrected,
+       the service was kindly contributed by Richard Harris.
+     * Text file preview function was added.
+     * The initial working directory for the secondary file
+       panel is now set by a bookmark named DIR2. This
+       replaces the configuration parameter DIR2.
+     * The initial working directory for the primary file
+       panel can be now set by a bookmark named DIR1.
+     * New configuration parameter TIME_DATE controls the
+       display of date and time.
+     * Changes to the mouse control were made.
+     * The recommendation against using alt-R for normal file 
+       renaming was dropped.
+
+
+4.5 released on 24-SEP-2009
+
+  Problems fixed:
+     * Name completion could not complete user and group names
+       containing a dot, comma or a dash character.
+
+  New or improved functionality:
+     * A mouse is supported on xterm-compatible terminals.
+     * The location of configuration files has been moved
+       again in order to comply with the XDG Specification.
+       The standard place for these files is from now on the
+       ~/.config/clex directory. Use the 'cfg-clex' utility to
+       move the files to the new location.
+     * There is a new option in the completion panel which
+       allows completion of a name which is a part of a longer
+       word. The option has a self-explaining description:
+       'name to be completed starts at the cursor position'.
+     * Configuration parameter C_PANEL_SIZE (completion panel
+       size) cannot be set to AUTO (screen size) because this
+       size is often uncomfortably small.
+     * The Unicode soft hyphen character is displayed as a
+       control character.
+     * In the history panel a command separator is
+       automatically inserted into the input line when a
+       command is appended to the end of another command.
+     * Configuration parameters CMD_Fn accept a new control
+       sequence $~ which disables the 'Press enter to
+       continue' prompt. The control is returned to CLEX
+       immediately after the command execution terminates
+       provided that:
+
+          * the command has not been modified; and
+          * the command terminates successfully (exit code
+            zero).
+
+     * The $! control sequence can appear anywhere in a
+       configuration parameter CMD_Fn, not only at the end.
+     * New function: alt-Z places the current line to the
+       center of the panel. People using cluster-ssh might
+       find it useful.
+
+
+4.4 released on 07-APR-2009
+
+  Problems fixed:
+     * In the help text there were few Unicode characters which
+       are now eliminated because they could not be displayed
+       properly in non-Unicode encodings.
+
+  New or improved functionality:
+     * New function was added: change into a subdirectory
+       showing the contents in the other file panel (alt-X).
+       This function allows a return into the original
+       directory simply by switching panels (ctrl-X).
+
+
+4.3 released on 29-MAR-2009
+
+  Problems fixed:
+     * A newly added bookmark did not appear on the screen
+       immediately.
+     * A misleading message 'Ignoring the DIR2 configuration
+       parameter' was logged when the 'DIR2' was set to
+       'HOME'.
+
+  New or improved functionality:
+     * The bookmark organizer has been merged with the regular
+       bookmark panel.
+     * Bookmarks can have descriptive names.
+     * The current working directory can be bookmarked from
+       the file panel (ctrl-D).
+     * The 'B_PANEL_SIZE' config parameter was removed.
+
+
+4.2 released on 15-MAR-2009
+
+  Problems fixed:
+     * In some cases the 'cfg-clex' utility was generating an
+       unusable template for the copy command (F5).
+     * Under certain circumstances a crash was occurring on
+       exit when CLEX was used over a ssh connection.
+
+  New or improved functionality:
+     * All configuration files now reside in the .clex
+       subdirectory. Use the 'cfg-clex' utility to move the
+       files to new location.
+
+
+4.1 released on 09-FEB-2009
+
+  Problems fixed:
+     * Usage of uninitialized memory during the start-up has
+       been corrected. It caused a crash on the Apple Mac OS X
+       platform. Systems where CLEX starts normally are not
+       affected by this bug.
+     * A compilation problem on Apple Mac OS X was fixed.
+     * The xterm title change feature did not work on remote
+       telnet or ssh connections.
+
+  New or improved functionality:
+     * If a directory comparison is restricted to regular
+       files, then only information about this type of file is
+       displayed in the summary.
+     * A small program named 'kbd-test' was added. It is a
+       utility for troubleshooting keyboard related problems.
+
+
+CLEX 4.0 released on 22-DEC-2008
+
+   This is the initial release of the CLEX 4 branch. Main new
+   features are:
+     * Unicode support was implemented.
+     * Several configuration parameters have been converted to options
+       which are saved automatically.
+     * The log panel and optional logging to a file for auditing and
+       troubleshooting were added.
+     * There is now 'cfg-clex' utility.
+     * A built-in function for renaming files with invalid or
+       unprintable characters was added.
+   Enhancements (compared to previous releases) include:
+     * Configuring prompt, time format and date format is more flexible.
+     * The help is not limited to one link per line.
+     * The user interface of the directory compare function was redesigned.
+     * Changes in the pattern matching routine were made
+     * Panel filtering is now available in two more panels.
+     * A new tool for inserting control characters into the input line
+       was added.

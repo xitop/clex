@@ -1,0 +1,21 @@
+extern void bm_initialize(void);
+extern int bm_prepare(void);
+extern int bm_edit0_prepare(void);
+extern int bm_edit1_prepare(void);
+extern int bm_edit2_prepare(void);
+extern void bm_panel_data(void);
+extern const BOOKMARK *get_bookmark(const wchar_t *);
+
+extern void cx_bm_save(void);
+extern void cx_bm_revert(void);
+extern void cx_bm_chdir(void);
+extern void cx_bm_edit(void);
+extern void cx_bm_up(void);
+extern void cx_bm_down(void);
+extern void cx_bm_del(void);
+extern void cx_bm_new(void);
+extern void cx_bm_addcwd(void);
+extern void cx_bm_edit0_enter(void);
+extern void cx_bm_edit1_enter(void);
+extern void cx_bm_edit2_enter(void);
+extern void cx_bm_edit2_compl(void);

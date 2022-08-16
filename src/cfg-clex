@@ -1,0 +1,269 @@
+#!/bin/sh
+
+echo 'CLEX configuration utility'
+echo '=========================='
+echo
+
+if [ x"`echo ~`" = x ] ; then
+	echo 'Error: no home directory'
+	exit 1
+fi
+
+if [ x"$XDG_CONFIG_HOME" != x ] ; then
+	clex_dir="$XDG_CONFIG_HOME/clex"
+else
+	clex_dir=~/.config/clex
+fi
+clex_opt="$clex_dir/options"
+clex_cfg="$clex_dir/config"
+clex_bmk="$clex_dir/bookmarks"
+
+if [ -f "$clex_cfg" ] ; then
+	echo "CLEX configuration file does exist. Please use the CLEX's"
+	echo 'configuration panel to make changes.'
+	echo
+	echo 'If you want to create a new configuration from scratch, delete'
+	echo "the file $clex_cfg and then run `basename $0` again."
+	exit 1
+fi
+
+if [ ! -d "$clex_dir" ] ; then
+	if ! mkdir -p "$clex_dir" ; then
+		echo "Error: could not create the $clex_dir directory"
+		exit 1
+	fi
+fi
+
+restart_msg() {
+	if [ x"$CLEX" != x ] ; then
+		echo "Please restart CLEX"
+	fi
+}
+
+# move files from 4.2, 4.3 or 4.4 ==================
+old_dir=~/.clex
+old_cfg="$old_dir/config"
+old_opt="$old_dir/options"
+old_bmk="$old_dir/bookmarks"
+
+if [ -f "$old_cfg" ] ; then
+	echo 'moving the configuration file to new location'
+	mv "$old_cfg" "$clex_cfg"
+fi
+if [ -f "$old_opt" ] ; then
+	echo 'moving the options file to new location'
+	mv "$old_opt" "$clex_opt"
+fi
+if [ -f "$old_bmk"  ] ; then
+	echo 'moving the bookmarks file to new location'
+	mv "$old_bmk" "$clex_bmk"
+fi
+rmdir "$old_dir" 2>/dev/null
+if [ -f "$clex_cfg" ] ; then
+	restart_msg
+	exit 0
+fi
+
+# move files from 4.0 or 4.1 =======================
+old_cfg=~/.clexcfg
+old_opt=~/.clexopt
+old_bmk=~/.clexbm
+
+if [ -f "$old_cfg" ] ; then
+	echo 'moving the configuration file to new location'
+	mv "$old_cfg" "$clex_cfg"
+fi
+if [ -f "$old_opt" ] ; then
+	echo 'moving the options file to new location'
+	mv "$old_opt" "$clex_opt"
+fi
+if [ -f "$old_bmk"  ] ; then
+	echo 'moving the bookmarks file to new location'
+	mv "$old_bmk" "$clex_bmk"
+fi
+if [ -f "$clex_cfg" ] ; then
+	restart_msg
+	exit 0
+fi
+
+# convert files from 3.X if any ==================
+
+# list of CLEX4 variables to be converted from CLEX3
+VARIABLE_LIST='C_PANEL_SIZE D_PANEL_SIZE H_PANEL_SIZE
+	CMD_F3 CMD_F4 CMD_F5 CMD_F6 CMD_F7 CMD_F8 CMD_F9 CMD_F10 CMD_F11 CMD_F12
+	TIME_FMT DATE_FMT LAYOUT_ACTIVE LAYOUT1 LAYOUT2 LAYOUT3
+	CMD_LINES DIR2 FRAME KILOBYTE PROMPT QUOTE XTERM_TITLE'
+
+confirmation()
+{
+	echo -n "$1 (y/N) ? "
+	read answer junk
+	if [ x"$answer" != x'y' -a x"$answer" != x'Y' ] ; then
+		echo "Exiting"
+		exit 1
+	fi
+	echo
+}
+
+reset_config() {
+	local var
+
+	for var in $VARIABLE_LIST ; do
+		unset CLEX_$var
+	done
+}
+
+read_config() {
+	local line var val
+
+	while read line ; do
+		if ! echo $line | LC_ALL=C grep -q '^[A-Z][A-Z0-9_]*=.*$' ; then
+			continue
+		fi
+		var=`echo $line | sed -e 's/=.*$//'`
+		val=`echo $line | LC_ALL=C sed -e 's/^[A-Z0-9_]*=//'`
+		eval CLEX_$var='"$val"'
+	done < "$1"
+}
+
+convert_config() {
+	echo 'Converting data from version 3 to version 4'
+	if [ x"$CLEX_FMT_DATE" != x ] ; then
+		CLEX_DATE_FMT=`echo $CLEX_FMT_DATE | sed -e 's/d/%d/;s/D/%e/;s/m/%m/;s/M/%b/;s/y/%y/;s/Y/%Y/'`
+	fi
+	if [ x"$CLEX_FMT_TIME" = x'1' ] ; then
+		CLEX_TIME_FMT='%I:%M%p'
+	elif [ x"$CLEX_FMT_TIME" = x'2' ] ; then
+		CLEX_TIME_FMT='%H:%M'
+	fi
+	if [ x"$CLEX_ACTIVE_LAYOUT" != x ] ; then
+		CLEX_LAYOUT_ACTIVE=`expr $CLEX_ACTIVE_LAYOUT + 1`
+	fi
+	if [ x"$CLEX_XTERM_TITLE" == x'2' ] ; then
+		CLEX_XTERM_TITLE='1'
+	fi
+	if [ x"$CLEX_LAYOUT1" != x ] ; then
+		CLEX_LAYOUT1=`echo $CLEX_LAYOUT1 | sed -e 's/|  /|/'`
+	fi
+	if [ x"$CLEX_LAYOUT2" != x ] ; then
+		CLEX_LAYOUT2=`echo $CLEX_LAYOUT2 | sed -e 's/|  /|/'`
+	fi
+	if [ x"$CLEX_LAYOUT3" != x ] ; then
+		CLEX_LAYOUT3=`echo $CLEX_LAYOUT3 | sed -e 's/|  /|/'`
+	fi
+}
+
+detect_programs() {
+	local opt var val prog arg
+
+	unset PROG3 PROG4 PROG5 PROG6 PROG7 PROG8 PROG9
+	ARG3='$f'
+	ARG4='$f'
+	if cp -- "$0" /dev/null >/dev/null 2>&1 ; then
+		echo "End of options mark '--' is supported"
+		opt=' --'
+		PROG3='more'
+		PROG4='vi'
+		PROG5='cp -ir'	; ARG5='$f $2'
+		PROG6='mv -i'	; ARG6='$f $2'
+		PROG7='mkdir'	; ARG7=''
+		PROG8='rm'		; ARG8='$f'
+		PROG9='lpr'		; ARG9='$f'
+	else
+		echo "End of options mark '--' is NOT supported"
+		opt=''
+	fi
+
+	if [ x"$CLEX_CMD_F3" = x ] ; then
+		if [ x"$PAGER" != x ] ; then
+			PROG3="$PAGER"
+		elif less -V  >/dev/null 2>&1; then
+			PROG3='less'
+		fi
+	fi
+	echo "Pager program: $PROG3"
+
+	if [ x"$CLEX_CMD_F4" = x ] ; then
+		if [ x"$EDITOR" != x ] ; then
+			PROG4="$EDITOR"
+		elif vim --version  >/dev/null 2>&1; then
+			PROG4='vim'
+		fi
+	fi
+	echo "Text editor: $PROG4"
+
+	for cmd in 3 4 5 6 7 8 9 ; do
+		var=CLEX_CMD_F$cmd
+		eval val="\$$var"
+		if [ x"$val" != x ] ; then
+			continue
+		fi
+		eval prog="\$PROG$cmd"
+		if [ x"$prog" = x ] ; then
+			continue
+		fi
+		eval arg="\$ARG$cmd"
+		eval $var='"$prog$opt $arg"'
+	done
+}
+ 
+print_config() {
+	local var val
+
+	for var in $VARIABLE_LIST ; do
+		eval val="\$CLEX_$var"
+		if [ x"$val" != x ] ; then
+			echo "$var=$val"
+		fi
+	done
+}
+
+reset_config
+
+cfg3usr=~/.clexrc
+cfg3sys=/etc/clexrc
+cfg3alt=/usr/local/etc/clexrc
+clex3files=''
+for file in "$cfg3sys" "$cfg3alt" ; do
+	if [ -f "$file" ] ; then
+		echo 'System-wide configuration file from previous version 3 found'
+		read_config "$file"
+		clex3files="$clex3files $file"
+	fi
+done
+if [ -f "$cfg3usr" ] ; then
+	echo 'Personal configuration file from previous version 3 found'
+	read_config "$cfg3usr"
+	clex3files="$clex3files $cfg3usr"
+fi
+if [ x"$clex3files" != x ] ; then
+	convert_config
+fi
+
+# build and save the configuration ==============
+
+detect_programs
+echo
+echo '=== BEGIN =================='
+print_config
+echo '=== END ===================='
+echo
+
+confirmation 'Save this configuration'
+{
+	echo '#'
+	echo '# CLEX configuration file'
+	echo '#'
+	print_config 
+} > "$clex_cfg"
+if [ "$?" -ne 0 ] ; then
+	echo 'Error saving configuration'
+	exit 1
+fi
+echo "Configuration saved"
+
+if [ x"$clex3files" != x ] ; then
+	echo "You might now want to delete the old configuration file(s):$clex3files"
+fi
+restart_msg
+exit 0

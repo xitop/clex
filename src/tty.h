@@ -1,0 +1,10 @@
+extern void tty_initialize(void);
+extern void jc_initialize(void);
+extern void tty_ctrlc(void);
+extern void tty_setraw(void);
+extern void tty_reset(void);
+extern void tty_save(void);
+extern void tty_restore(void);
+extern void jc_reset(void);
+extern void tty_press_enter(void);
+extern int  tty_dialog(int, const char *);
