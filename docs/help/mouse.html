@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Using a mouse</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Using a mouse</h1>
+<!-- H2H!show -->
+
+<p>
+A mouse is supported on some terminals. The mouse support can be
+disabled in the <a href="cfg.html">configuration panel</a>.
+</p>
+
+<h2>General usage</h2>
+
+<h3>Inside a panel</h3>
+<ul>
+	<li>A single click sets the cursor bar position.</li>
+	<li>A double click is equivalent to pressing the <kbd>&lt;enter&gt;</kbd> key.</li>
+	<li>
+		A right-click (left-click on a left-handed mouse) inserts text from the panel
+		into the input line like the <kbd>&lt;tab&gt;</kbd> key.
+	</li>
+	<li>The mouse wheel moves the cursor bar. The speed is configurable.</li>
+	<li>
+		A click on the top or bottom frame scrolls the cursor by one page
+		equivalent to <kbd>&lt;page-up&gt;</kbd> or <kbd>&lt;page-down&gt;</kbd> keys.
+	</li>
+</ul>
+
+<h3>On the input line</h3>
+<ul>
+	<li>A single click sets the cursor position.</li>
+	<li>A double click is like <kbd>&lt;enter&gt;</kbd>.</li>
+	<li>The mouse wheel moves the cursor.</li>
+</ul>
+
+<h3>In the CLEX bar</h3>
+<ul>
+	<li>
+		The CLEX bar is the line with "CLEX File Manager" title displayed in reverse video.
+		A double click on a hint shown there (for example <code>F1=help</code>) activates
+		the named function.
+	</li>
+</ul>
+
+<h3>Panel filter</h3>
+<ul>
+	<li>A single click sets the cursor.</li>
+	<li>The mouse wheel moves the cursor.</li>
+</ul>
+
+<p>
+	<strong>Note:</strong> In order to enable cut &amp; paste operations,
+	hold the shift key to bypass mouse tracking.
+</p>
+
+<h2>File panel specific usage</h2>
+
+<h3>In the title line</h3>
+<ul>
+	<li>A double click on the current directory name (top-left corner) invokes the directory panel.</li>
+	<li>A double click on the secondary directory name (top-right corner) switches panels.</li>
+</ul>
+
+<h3>In the list of files</h3>
+<ul>
+	<li>
+		A mouse double click does not behave exactly like pressing enter.
+		A double click on a directory changes into that directory.
+		A double click on a file activates the <a href="preview.html">preview function</a>.
+	</li>
+</ul>
+
+<h3>In the prompt area of the command line</h3>
+<ul>
+	<li>
+		The mouse wheel movement in the command browses the command history list like
+		<kbd>ctrl-P</kbd> and <kbd>ctrl-N</kbd>.
+	</li>
+	<li>A double click on the command prompt invokes the command history panel.</li>
+</ul>
+
+<h2>Technical details</h2>
+<p>
+	CLEX is compiled either with support for the NCURSES mouse interface
+	or for the xterm mouse interface. The preferred interface is the former,
+	because it can communicate with several types of mice including xterm compatible terminals
+	and gpm server. The required version 2 of this interface first appeared
+	in NCURSES release 6.0.
+</p>
+<ul>
+	<li>
+		Run <code>clex --version</code> to check
+		which mouse interface was compiled into the CLEX on your system.
+	</li>
+	<li>
+		Visit the <a href="log.html">log panel</a> after starting CLEX
+		to check if a mouse was detected.
+	</li>
+</ul>
+</body>
+</html>

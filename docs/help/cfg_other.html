@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>List of configurable parameters 3/3</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>List of configurable parameters 4/4</h1>
+<!-- H2H!show -->
+
+<p>
+<strong>Warning</strong>: do not change parameters you do not understand. If you are unsure,
+test the new value before saving the configuration. If any problems occur, reset the parameter
+to standard value.
+</p>
+
+<dl>
+	<dt><code id="quote">QUOTE</code></dt>
+	<dd>
+		Some characters have a special meaning for the shell. If these special characters
+		appear in a filename being inserted into the command line, they must be taken literally,
+		without the special meaning. This is achieved by quoting them with a preceding backslash.
+		<br><br>
+		These characters are always quoted:
+		<blockquote><div>( ) &lt; &gt; [ ] { } # $ &amp; \ | ? * ; ' " ` ~ space tab</div></blockquote>
+		Another two characters are added to the list if your shell is a C-shell (see notes below):
+		<blockquote><div>! :</div></blockquote>
+		The <code>QUOTE</code> parameter allows you to specify a list of additional characters
+		that need to be quoted.
+	</dd>
+
+	<dt><code>C_PANEL_SIZE</code></dt>
+	<dd>
+		Size of the name completion panel, i.e. its maximum number of lines.
+	</dd>
+
+	<dt><code>D_PANEL_SIZE</code></dt>
+	<dd>
+		Size of the directory panel. The value <code>AUTO</code> limits the panel size
+		to the actual screen size.
+	</dd>
+
+	<dt><code>H_PANEL_SIZE</code></dt>
+	<dd>Size of the command history panel.</dd>
+</dl>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>
+		Screen size <code>AUTO</code> for <code>D_PANEL_SIZE</code> parameter leaves
+		the bottom panel line blank to indicate that there is no need to scroll.
+	</li>
+	<li>Changing <code>H_PANEL_SIZE</code> clears the contents of the command history list.</li>
+	<li>Your shell is considered to be a C-shell when its name ends with <code>csh</code>.</li>
+</ul>
+</div>
+
+</body>
+</html>

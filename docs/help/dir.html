@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Changing working directory</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Changing working directory</h1>
+
+<div>
+<br>The directory panel:<br>
+<img src="dir.png" alt="screenshot" width="468" height="321">
+</div>
+<!-- H2H!show -->
+
+<h2>Changing directory in the directory panel</h2>
+<p>
+This panel allows you to change the working directory using any of the following methods.
+If an error occurs (e.g. directory not found), either correct the directory name and try again
+or press <kbd>ctrl-C</kbd> (or <kbd>ctrl-G</kbd>) to cancel the operation and exit the panel.
+</p>
+
+<h3>1. Choosing directory name from the panel</h3>
+<p>
+CLEX maintains a list of recently visited directories to help you to return to a previously used
+directory easily. The list is sorted alphabetically and is <a href="compacting.html">compacted</a>.
+</p>
+
+<p>
+Simply highlight the requested directory with the cursor bar and press <kbd>&lt;enter&gt;</kbd>.
+A new list will appear in the panel showing the chosen directory split into
+components. Confirm the requested directory again with <kbd>&lt;enter&gt;.</kbd>
+</p>
+
+<p>
+The <a href="filter.html">panel filter</a> (<kbd>ctrl-F</kbd>) can be used for finding
+directory names in the panel.
+</p>
+
+<h3>2. Entering new directory name</h3>
+<p>
+Either press the <kbd>&lt;tab&gt;</kbd> key to insert the current name from the panel
+into the empty input line or start typing the name of the new working
+directory. Enter the directory name as it is, do not quote anything.
+</p>
+
+<p>
+With the <kbd>&lt;tab&gt;</kbd> key you can <a href="completion.html">complete</a>
+a partial directory name. Finally, press <kbd>&lt;enter&gt;</kbd>.
+</p>
+
+<p>
+When the input line or the panel is being used, the focus automatically changes
+accordingly. The focus is indicated by the cursor bar's visibility and by the
+highlighting of the input line prompt. Which directory name has the focus is
+important when you press the <kbd>&lt;enter&gt;</kbd>.
+</p>
+
+<p>
+Note: CLEX performs <a href="tilde.html">tilde substitution</a>.
+</p>
+
+<h3>3. Choosing directory name from the bookmark list</h3>
+<p>
+Follow the <code>--&gt;Bookmarks</code> link (or press <kbd>alt-K</kbd>) to switch to the <a href="bookmarks.html">bookmark panel</a>
+and then select a directory from the list.
+</p>
+
+<h2>Changing directory in the file panel</h2>
+<p>
+Please note that there are other convenient methods to change the working
+directory without using the directory panel:
+</p>
+<ul>
+	<li>Make use of the <a href="cd.html">cd command</a> in the command line.</li>
+	<li>Traverse the directory tree:
+		move the file panel cursor bar to the requested directory and press
+		<kbd>&lt;esc&gt;&nbsp;&lt;enter&gt;</kbd>. The <kbd>&lt;esc&gt;</kbd> can be omitted if the command line is empty.
+	</li>
+	<li>Use the shortcuts for frequently used change directory commands:<br>
+		<table class="keys">
+			<tr><td><kbd>alt-/</kbd></td><td>change into the root directory</td></tr>
+			<tr><td><kbd>alt-.</kbd></td><td>change into the parent <code>..</code> directory</td></tr>
+			<tr><td><kbd>alt-~</kbd></td><td>change into your home directory</td></tr>
+		</table>
+	</li>
+</ul>
+
+</body>
+</html>

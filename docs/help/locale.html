@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>The locale</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>The locale</h1>
+<!-- H2H!show -->
+
+<p>
+A locale is a set of language and cultural rules like alphabet order,
+12/24 hour clock selection or the date and time formats. It is defined by environment variables.
+Most often the <code>LC_ALL</code> variable controls everything.
+</p>
+
+<p>
+If the <code>LC_ALL</code> is not set, the locale is controlled by a set
+of variables for specific locale categories, e.g.:
+</p>
+<table class="tab">
+	<tr><td><code>LC_CTYPE</code></td><td>Character classification and case conversion</td></tr>
+	<tr><td><code>LC_COLLATE</code></td><td>Collation order</td></tr>
+	<tr><td><code>LC_TIME</code></td><td>Date and time formats</td></tr>
+	<tr><td><code>LC_NUMERIC</code></td><td>Non-monetary numeric formats</td></tr>
+	<tr><td><code>LC_MESSAGES</code></td><td>Formats of messages</td></tr>
+	<tr><td><code>LANG</code></td><td>Default value for unset variables</td></tr>
+</table>
+
+</body>
+</html>

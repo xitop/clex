@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Basic editing functions</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Basic editing functions</h1>
+<!-- H2H!show -->
+
+<h3>Move cursor</h3>
+<table class="keys">
+	<tr><td><kbd>&lt;left&gt;</kbd></td><td>character left</td></tr>
+	<tr><td><kbd>&lt;right&gt;</kbd></td><td>character right</td></tr>
+	<tr><td><kbd>&lt;home&gt;</kbd></td><td>move to the beginning of the line</td></tr>
+	<tr><td><kbd>&lt;end&gt;</kbd></td><td>move to the end of the line</td></tr>
+	<tr>
+		<td><kbd>alt-B</kbd> or <kbd>shift-&lt;left&gt;</kbd> or <kbd>ctrl-&lt;left&gt;</kbd></td>
+		<td>word left (back)</td>
+	</tr>
+	<tr>
+		<td><kbd>alt-F</kbd> or <kbd>shift-&lt;right&gt;</kbd> or <kbd>ctrl-&lt;right&gt;</kbd></td>
+		<td>word right (forward)</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;esc&gt;&nbsp;&lt;up&gt;</kbd> or <kbd>ctrl-&lt;up&gt;</kbd></td>
+		<td>line up</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;esc&gt;&nbsp;&lt;down&gt;</kbd> or <kbd>ctrl-&lt;down&gt;</kbd></td>
+		<td>line down</td>
+	</tr>
+</table>
+<div>Some key combinations from the list above may be unsupported or not available on some systems.</div>
+
+<h3>Delete</h3>
+<table class="keys">
+	<tr><td><kbd>&lt;del&gt;</kbd></td><td>delete character under the cursor</td></tr>
+	<tr><td><kbd>alt-D</kbd></td><td>delete word at the cursor</td></tr>
+	<tr><td><kbd>&lt;backspace&gt;</kbd> or <kbd>ctrl-H</kbd></td><td>delete character to the left the cursor</td></tr>
+	<tr><td><kbd>ctrl-K</kbd></td><td>delete to end of line</td></tr>
+	<tr><td><kbd>ctrl-U</kbd></td><td>delete entire line</td></tr>
+</table>
+
+<h3>Insert</h3>
+<p>
+All regular text that you type is inserted, there is no overtype mode.
+</p>
+<p>
+In order to insert a control character that has a function in the program
+(e.g. <kbd>ctrl-C</kbd> = exit panel) press <kbd>ctrl-V</kbd> before the character:
+</p>
+<table class="keys">
+	<tr><td><kbd>ctrl-V &lt;X&gt;</kbd></td><td>insert the character <code>X</code></td></tr>
+</table>
+<p>
+In order to insert characters by their codes press <kbd>alt-I</kbd> and follow these
+<a href="insert.html">instructions</a>.
+</p>
+
+<h3>Undo and redo</h3>
+<table class="keys">
+	<tr>
+		<td><kbd>ctrl-Z</kbd> or <kbd>alt-ctrl-Y</kbd></td>
+		<td>undo (reverse the last insert or delete operation)</td>
+	</tr>
+	<tr>
+		<td><kbd>ctrl-Y</kbd> or <kbd>alt-ctrl-Z</kbd></td>
+		<td>redo (revert to the state before undo)</td>
+	</tr>
+</table>
+
+<h3>Miscellaneous</h3>
+<table class="keys">
+	<tr>
+		<td><kbd>alt-T</kbd></td>
+		<td>transform character case (upper to lower and vice versa)</td>
+	</tr>
+</table>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>
+		The edit functions treat every space as a word separator.
+	</li>
+	<li>
+		Unprintable characters in the input line are displayed as highlighted question marks.
+		If you put the cursor over such character, you can see its numeric value.<br>
+<!-- H2H!hide -->
+		<img src="ctrl_char.png" width="468" height="104" alt="screenshot">
+<!-- H2H!show -->
+	</li>
+	<li>
+		Filenames containing unprintable characters can be renamed using the
+		internal <a href="rename.html">rename function</a> <kbd>alt-R</kbd>.
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Name completion</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Name completion</h1>
+<!-- H2H!show -->
+
+<p>
+This function attempts to complete any name (word) found at the cursor position.
+<strong>TIP</strong>: If finer control over the name completion is required
+or if the automatic completion reaches its limits, please use the:
+<a href="paste.html">completion/insertion panel</a> (<kbd>&lt;esc&gt; &lt;tab&gt;</kbd>) instead.
+</p>
+
+<p>
+There are several types of name completion and the completion method is chosen
+automatically depending on the context. Please note that inside some
+command line constructs (e.g. loops), the automatic completion may
+fail to choose the right type of completion.
+</p>
+<dl>
+	<dt>command names</dt>
+	<dd>
+		word to be completed is the first word in a command.
+		If no directory is specified, <code>$PATH</code> is searched.
+	</dd>
+	<dt>directory names</dt><dd>used in the directory panel</dd>
+	<dt>user names</dt>
+		<dd>for names beginning with <code>~</code>
+		(<code>~username</code> = user's home directory)
+	</dd>
+	<dt>environment variables</dt>
+	<dd>for names beginning with <code>$</code> sign</dd>
+	<dt>filenames</dt><dd>this general type of completion is performed in all other cases</dd>
+</dl>
+
+<p>
+Filename completion tries to recognize certain shell metacharacters and completes
+filenames in these situations:
+</p>
+<ul>
+	<li><code>command &lt; /some/file</code> - also <code>&gt;</code> or <code>&gt;&gt;</code> redirections</li>
+	<li><code>command ; /other/command</code></li>
+	<li><code>command &amp; /other/command</code></li>
+	<li><code>command || /other/command</code> - also <code>&amp;&amp;</code></li>
+	<li><code>command | /other/command</code></li>
+	<li><code>`command`</code></li>
+</ul>
+<div>These common situations are handled as well:</div>
+<ul>
+	<li><code>arg=/some/file</code></li>
+	<li><code>--option=/some/file</code></li>
+	<li><code>host:/some/file</code> or <code>user@host:/some/file</code></li>
+</ul>
+<div>
+The <code>arg</code>, <code>option</code>, <code>user</code>, or <code>host</code> in these
+examples must be a single word and the cursor must be  positioned after
+the <code>:</code> or <code>=</code> character.
+</div>
+
+<p>
+If there is no completion possibility, a warning is displayed. If there is exactly one completion
+possibility, CLEX completes the name, otherwise a list of completion candidates appears
+on the screen.</p>
+<!-- H2H!hide -->
+<div><img src="completion.png" alt="screenshot" width="468" height="321"></div>
+<!-- H2H!show -->
+
+</body>
+</html>

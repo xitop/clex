@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Comparing directories</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Comparing directories</h1>
+<!-- H2H!show -->
+
+<p>
+Files in the current working directory (primary panel) and files in the secondary working
+directory (secondary panel) are compared with each other and the differences are marked
+with selection marks.
+</p>
+
+<p>
+Files which are the same in both directories are not selected and files which do not
+appear in both directories or which are different are selected.
+</p>
+
+<p>
+The comparison can be restricted to regular files only. Files that do not meet
+this condition (e.g. directories) are left unselected.
+</p>
+
+<!-- H2H!hide -->
+<p><img src="compare.png" alt="screenshot" width="468" height="321"></p>
+<!-- H2H!show -->
+
+<p>
+In the simplest comparison, two files are equal if they have the same name and the same type.
+In addition to this, several other attributes can be selected for comparison:
+</p>
+<ul>
+	<li>
+		file size: the size is compared only for plain files, i.e. not for directories, etc. 
+		For device special files their device major and minor numbers are compared instead of the size.
+	</li>
+	<li>file mode, i.e. access rights or permissions</li>
+	<li>file ownership, i.e. user and group</li>
+	<li>file data, i.e. the contents. Only the data of plain files is compared.</li>
+</ul>
+
+<p>
+Comparing large amounts of data may take a long time. You can press
+the <kbd>ctrl-C</kbd> key to abort the comparison at any time.
+</p>
+
+<p>A <a href="summary.html">comparison summary</a> is displayed afterward.</p>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>Both directories are automatically re-read before comparison.</li>
+	<li>
+		In UTF-8 there are two encoding methods for accented characters.
+		Two visually-equivalent characters encoded in different ways do not compare as equal.
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

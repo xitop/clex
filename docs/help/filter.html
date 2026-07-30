@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Panel filter</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Panel filter</h1>
+<!-- H2H!show -->
+
+<p>
+This function helps to find an entry in a long listing quickly. It is available in the
+file panel (file names), the completion panel, the directory and the bookmark panels (directory names),
+the history panel (commands), the user/group panels (user names), and the log panel.
+</p>
+
+<p>
+The filter exists also in the help panel in an altered
+form of the <a href="help.html#find">find text function</a>.
+</p>
+
+<p>
+Start with pressing the <kbd>ctrl-F</kbd> key, then type in some string
+appearing in the name(s) you are looking for. While you type, the panel contents
+shrink to display only entries containing the string you have entered.
+</p>
+
+<p>
+There are several <a href="filter_opt.html">options</a> affecting
+the filtering process. Press <kbd>Alt-O</kbd> to display them.
+</p>
+
+<p>
+Finally press:
+</p>
+<ul>
+	<li><kbd>&lt;enter&gt;</kbd> to cancel the panel filter (see the notes below), or</li>
+	<li>
+		<kbd>ctrl-F</kbd> to return to the input line while the filter
+		remains active. Repeated <kbd>ctrl-F</kbd> will bring you back to the filter expression.
+	</li>
+</ul>
+
+<p>
+Pasting text (usually with the <kbd>tab</kbd> key) from the filtered panel
+into the input line moves the cursor from the filter to the input line.
+</p>
+
+<h3>Filtering in the file panel</h3>
+<p>
+In the file panel, a pattern can be used as a filter expression as well.
+If the filter expression contains the wildcards <code>*</code> <code>?</code>
+or <code>[]</code> then it is automatically used as a <a href="patterns.html">pattern</a>.
+In order to use those special characters in a normal filter (substring) you have to quote
+them, e.g. with a preceding backslash.
+</p>
+
+<!-- H2H!hide -->
+<h3>Examples</h3>
+<div>
+<img src="filter1.png" alt="screenshot" width="468" height="321"><br>
+<img src="filter2.png" alt="screenshot" width="468" height="321">
+</div>
+<!-- H2H!show -->
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>
+		In the file panel, the directory is re-read when filtering is activated
+		and the panel's contents are more than 60 seconds old.
+	</li>
+	<li>
+		Executing a command cancels a substring-type file panel filter,
+		but not a pattern-type filter.
+	</li>
+	<li>
+		For symbolic links in the file panel, not only the name,
+		but also the value is inspected by the filter.
+	</li>
+	<li>
+		The filter in the directory panel cannot be canceled unless the
+		filter expression is empty. This prevents an undesired interaction
+		between filtering and <a href="compacting.html">compacting</a>.
+	</li>
+	<li>
+		Quoting is supported in the file panel only. In all other panels the filter
+		expression is taken literally.
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

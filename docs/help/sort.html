@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Setting the sort order</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Setting the sort order</h1>
+<!-- H2H!show -->
+
+<p>
+The sort order affects only the way the filenames are displayed.
+</p>
+
+<p>
+You can set the sort order for the current panel and the current directory only
+or you can set the global sort order for all panels and directories. The
+global settings are retained between sessions.</li>
+</p>
+
+<p>
+On the top of the panel there are settings for hidden files processing. Hidden files can be
+excluded from the file list if it is desired. A special setting hides them in the user's home
+directory only, because they traditionally tend to clutter mainly the home directory.
+A reminder <code>HIDDEN</code> is displayed at the lower right panel corner when such
+files exist in a directory, but they are excluded from the panel.
+</p>
+
+<p>
+Files are first grouped and then the groups are sorted. If grouping is enabled,
+CLEX will group files of the same type together. Files will be displayed in this order:
+</p>
+<ul>
+	<li>directories first (see the note #1)</li>
+	<li>then special files</li>
+	<li>then plain files</li>
+</ul>
+<div>or alternatively:</div>
+<ul>
+	<li>directories (see the note #1)</li>
+	<li>block devices (see the note #2)</li>
+	<li>character devices (see the note #2)</li>
+	<li>other special files</li>
+	<li>plain files</li>
+</ul>
+<div>
+Notes:
+<ol>
+	<li>Directories . and .. will be always on the top of the display. (1)</li>
+	<li>
+		Despite the selected sort order, devices will be
+		sorted by their major and minor numbers. (2)
+	</li>
+</ol>
+</div>
+
+<p>
+Files within a group are sorted using the order selected from the menu.
+</p>
+
+<!-- H2H!hide -->
+<div><img src="sort.png" alt="screenshot" width="468" height="321"></div>
+<!-- H2H!show -->
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>
+		The term <em>hidden files</em> is used for files with names
+		beginning with a period (dot) because they are usually not
+		listed in a directory listing (output of the <code>ls</code> command).
+		This naming convention is the only difference between normal and hidden files.
+	</li>
+	<li>Sorting by name is affected by the <a href="locale.html">locale</a>.</li>
+	<li>
+		The <code>sort by extension</code> (by filename suffix) considers a file named <code>.file</code>
+		to be a hidden file without an extension.
+	</li>
+	<li>
+		The unusual <code>sort by reversed name</code> option is useful in sendmail queue
+		directories where files like <code>qf1234</code>, <code>df1234</code>,
+		and <code>xf1234</code> belong together.
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

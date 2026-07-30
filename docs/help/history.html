@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Command history</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Command history</h1>
+<!-- H2H!show -->
+
+<p>
+The history panel offers advanced functions for working with the command line history list.
+</p>
+
+<p>
+The most common tasks can be accomplished directly from the
+<a href="file3.html#history">file panel</a> (see <kbd>ctrl-P</kbd>, <kbd>ctrl-N</kbd>, and <kbd>alt-P</kbd>).
+</p>
+
+<p>
+In the history panel, you can browse the list of recently executed commands, 
+insert the command(s) into the command line and edit them as required.
+For example two or more previously executed commands can be easily combined into a new command.
+</p>
+
+<!-- H2H!hide -->
+<div>
+<br>The history panel:<br>
+<img src="history.png" alt="screenshot" width="468" height="321">
+</div>
+<!-- H2H!show -->
+
+<p>
+Help with keys:
+</p>
+<table class="keys">
+	<tr>
+		<td valign="top"><kbd>&lt;enter&gt;</kbd></td>
+		<td>
+			Return to the file panel.
+			If the command line is empty, the current command from the history list will be copied into it.
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>&lt;tab&gt;</kbd></td>
+		<td>
+			Insert the text of the current command from the panel into the command line.
+			A command separator <code>;</code> is automatically inserted when a command
+			is appended to the end of another command.</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;esc&gt; &lt;del&gt;</kbd></td>
+		<td>Delete the current entry from the history list.</td>
+	</tr>
+	<tr>
+		<td><kbd>Ctrl-F</kbd></td>
+		<td>Activate the <a href="filter.html">panel filter</a>.</td>
+	</tr>
+	<tr>
+		<td><kbd>Ctrl-C</kbd> or <kbd>Ctrl-G</kbd></td>
+		<td>Exit the history panel (changes made in the command line are preserved).</td>
+	</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Suspending the running command</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Suspending the running command</h1>
+<!-- H2H!show -->
+
+<p>
+	Note that this feature is intended for administrators or advanced users only and normally there is
+	no need to use it. However, it could help in some unusual situations like system recovery tasks when
+	another terminal is not available.
+</p>
+
+<p>
+	On systems which support the job control, the running command (a so-called process group) can be stopped
+	(suspended) with the <kbd>ctrl-Z</kbd> key and then it can be placed in the <em>background</em> (i.e running
+	without the terminal I/O) while other commands can be normally started in the <em>foreground</em>.
+</p>
+
+<p>
+	CLEX does not support full job control. It can only resume (restart) the command suspended
+	with <kbd>ctrl-Z</kbd>, but a shell session can be started before resuming the command. In this
+	shell session virtually any tasks can be performed.
+</p>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>
+		In order to check the status of job control support, see the output of
+		<blockquote><div>clex --version</div></blockquote>
+	</li>
+	<li>
+		The suspend key can be redefined, <kbd>ctrl-Z</kbd> is the normal setting.
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Troubleshooting keyboard problems</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Troubleshooting keyboard problems</h1>
+<!-- H2H!show -->
+
+<p>
+If <kbd>alt-KEY</kbd> does not work, press first <kbd>&lt;esc&gt;</kbd> and then the <kbd>KEY</kbd>.
+This is equivalent to <kbd>alt-KEY</kbd> usage.
+</p>
+
+<p>
+If a key combination is in use by the window manager you could try
+adding another modifier key like the shift or ctrl. E.g. <kbd>alt-&lt;tab&gt;</kbd> is often
+not available to CLEX because it switches tasks on a graphical desktop, but <kbd>ctrl-alt-&lt;tab&gt;</kbd>
+might work fine.
+</p>
+
+<p>
+If a function key does not work, please run the <code>kbd-test</code> utility which is
+bundled with CLEX. Press the key in question and compare the output
+with the values in this table.
+</p>
+
+<table class="keys">
+	<tr><th>pressed key</th><th>expected <code>kbd-test</code> output</th><th>notes</th></tr>
+	<tr><td><kbd>&lt;left&gt;</kbd></td><td>KEY_LEFT</td><td>essential key</td></tr>
+	<tr><td><kbd>&lt;right&gt;</kbd></td><td>KEY_RIGHT</td><td>essential key</td></tr>
+	<tr><td><kbd>&lt;up&gt;</kbd></td><td>KEY_UP</td><td>essential key</td></tr>
+	<tr><td><kbd>&lt;down&gt;</kbd></td><td>KEY_DOWN</td><td>essential key</td></tr>
+	<tr><td><kbd>&lt;home&gt;</kbd></td><td>KEY_HOME</td><td>important key</td></tr>
+	<tr><td><kbd>&lt;page up&gt;</kbd></td><td>KEY_PPAGE</td><td>important key</td></tr>
+	<tr><td><kbd>&lt;page down&gt;</kbd></td><td>KEY_NPAGE</td><td>important key</td></tr>
+	<tr><td valign="top"><kbd>&lt;del&gt;</kbd></td>
+		<td>KEY_DC<br>(\x7F is incorrect, but might work)</td>
+		<td valign="top">important key</td></tr>
+	<tr><td valign="top"><kbd>&lt;backspace&gt;</kbd></td>
+		<td>KEY_BACKSPACE<br>(ctrl-H is incorrect, but will work fine)</td>
+		<td>ctrl-H has the same function in the input line</td></tr>
+	<tr><td valign="top"><kbd>&lt;insert&gt;</kbd></td>
+		<td valign="top">KEY_IC or KEY_IL</td>
+		<td>ctrl-T has the same function in the input line</td></tr>
+	<tr><td valign="top"><kbd>&lt;F1&gt;</kbd>, <kbd>&lt;F2&gt;</kbd>, ...</td>
+		<td valign="top">KEY_F(1), KEY_F(2), ...</td>
+		<td>essential keys, there is a <a href="keys_fn.html">workaround</a></td></tr>
+	<tr><td valign="top"><kbd>shift-&lt;left&gt;</kbd></td>
+		<td valign="top">KEY_SLEFT</td>
+		<td>optional key, alt-B has the same function in the input line</td></tr>
+	<tr><td valign="top"><kbd>shift-&lt;right&gt;</kbd></td>
+		<td valign="top">KEY_SRIGHT</td>
+		<td>optional key, alt-F has the same function in the input line</td></tr>
+	<tr><td><kbd>ctrl-&lt;left&gt;</kbd></td><td>kLFT5 (or other digit at the end)</td>
+		<td>optional key, like &lt;esc&gt; &lt;left&gt;</td></tr>
+	<tr><td><kbd>ctrl-&lt;right&gt;</kbd></td><td>kRIT5 (or other digit at the end)</td>
+		<td>optional key, like &lt;esc&gt; &lt;right&gt;</td></tr>
+	<tr><td><kbd>ctrl-&lt;up&gt;</kbd></td><td>kUP5 (or other digit at the end)</td>
+		<td>optional key, like &lt;esc&gt; &lt;up&gt;</td></tr>
+	<tr><td><kbd>ctrl-&lt;down&gt;</kbd></td><td>kDN5 (or other digit at the end)</td>
+		<td>optional key, like &lt;esc&gt; &lt;down&gt;</td></tr>
+</table>
+
+<p>
+If your results differ from the values above, then CLEX is not getting the correct input.
+Your terminal is probably not set properly or the termcap/terminfo database
+does not match the terminal's keyboard output.
+</p>
+
+<p>
+Please do not report keyboard problems as CLEX bugs if <code>kbd-test</code> output
+differs from the correct values in the table.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Filter and pattern matching options</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Filter and pattern matching options</h1>
+<!-- H2H!show -->
+
+<p>
+These options control the panel filter and also the pattern
+matching routine which is used not only by the panel filter
+but also by the <a href="select.html">select and deselect</a> functions.
+</p>
+
+<dl>
+	<dt>substring matching: ignore the case of the characters</dt>
+	<dd>
+		Check this option to ignore the case of alphabetic
+		characters. Note: this does not apply to pattern matching.
+	</dd>
+	<dt>pattern matching: wildcards match the dot in .hidden files</dt>
+	<dd>
+		Check this option if you do not want to treat the
+		hidden files specially.
+	</dd>
+	<dt>file panel filtering: always show directories</dt>
+	<dd>
+		If you check this option, the file panel will show
+		all directories regardless of the filter. This allows traversal of
+		the directory tree while a filter is active.
+	</dd>
+</dl>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>
+		The term <em>hidden files</em> is used for files with names
+		beginning with a period (dot) because they are usually not
+		listed in a directory listing (output of the <code>ls</code> command).
+		This naming convention is the only difference between normal and hidden files.
+	</li>
+	<li>The option settings are retained between sessions.</li>
+</ul>
+</div>
+
+</body>
+</html>

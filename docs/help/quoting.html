@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Automatic filename quoting</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Automatic filename quoting</h1>
+<!-- H2H!show -->
+
+<p>
+CLEX correctly handles special characters in filenames. For example: in order to delete
+a file named <code>*</code> (asterisk) it generates the correct command
+<code>rm&nbsp;\*</code>, and not the incorrect and disastrous <code>rm&nbsp;*</code>.
+</p>
+
+<p>
+Remember that automatic quoting applies only to filenames being inserted into the
+command line (<kbd>&lt;tab&gt;</kbd> and keys <kbd>&lt;F2&gt;</kbd> to <kbd>&lt;F12&gt;</kbd>).
+</p>
+
+<p>
+See also: <a href="cfg_other.html#quote">configuration parameter <code>QUOTE</code></a>
+</p>
+
+</body>
+</html>

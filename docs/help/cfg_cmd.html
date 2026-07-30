@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>List of configurable parameters 2/3</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>List of configurable parameters 2/4</h1>
+<!-- H2H!show -->
+
+<p>These parameters control the execution of commands.</p>
+
+<p>
+<strong>Warning</strong>: do not change parameters you do not understand. If you are unsure,
+test the new value before saving the configuration. If any problems occur, reset the parameter
+to standard value.
+</p>
+
+<dl>
+	<dt><code>CMD_F3</code></dt>
+	<dd><kbd>&lt;F3&gt;</kbd> = view file(s)</dd>
+
+	<dt><code>CMD_F4</code></dt>
+	<dd><kbd>&lt;F4&gt;</kbd> = edit file(s)</dd>
+
+	<dt><code>CMD_F5</code></dt>
+	<dd><kbd>&lt;F5&gt;</kbd> = copy file(s)</dd>
+
+	<dt><code>CMD_F6</code></dt>
+	<dd><kbd>&lt;F6&gt;</kbd> = move file(s)</dd>
+
+	<dt><code>CMD_F7</code></dt>
+	<dd><kbd>&lt;F7&gt;</kbd> = make directory</dd>
+
+	<dt><code>CMD_F8</code></dt>
+	<dd><kbd>&lt;F8&gt;</kbd> = remove file(s)</dd>
+
+	<dt><code>CMD_F9</code></dt>
+	<dd><kbd>&lt;F9&gt;</kbd> = print file(s)</dd>
+
+	<dt><code>CMD_F10</code></dt>
+	<dd><kbd>&lt;F10&gt;</kbd> = user defined</dd>
+
+	<dt><code>CMD_F11</code></dt>
+	<dd><kbd>&lt;F11&gt;</kbd> = user defined</dd>
+
+	<dt><code>CMD_F12</code></dt>
+	<dd><kbd>&lt;F12&gt;</kbd> = user defined</dd>
+</dl>
+<div>
+All these <code>CMD_Fx</code> parameters are templates used to build commands each time you press one of
+the function keys <kbd>&lt;F3&gt;</kbd> to <kbd>&lt;F12&gt;</kbd>.
+</div>
+
+<h3>Substitutions</h3>
+<p>
+The following substitutions are performed
+before the specified text is inserted into the command line:
+</p>
+<ul>
+	<li><code>$1</code> --&gt; name of the <a href="2dirs.html">current working directory</a></li>
+	<li><code>$2</code> --&gt; name of the <a href="2dirs.html">secondary directory</a></li>
+	<li><code>$F</code> --&gt; name of the current file</li>
+	<li><code>$S</code> --&gt; name(s) of the selected file(s) (<code>$f</code> is preferred)</li>
+	<li>
+		<code>$f</code> --&gt; like <code>$S</code> when <kbd>&lt;esc&gt;</kbd> was pressed
+		before the last keystroke and there are some selected files; like <code>$F</code> otherwise
+	</li>
+	<li><code>$$</code> --&gt; single <code>$</code> character</li>
+</ul>
+<div>
+All inserted file and directory names are <a href="quoting.html">quoted</a> properly.<br>
+</div>
+
+<h3>Control sequences</h3>
+<ul>
+	<li>
+		<code>$c</code> sets the cursor position, e.g:
+		<blockquote><div>find / -type f -name '$c' -print</div></blockquote>
+		Normal cursor position (without the <code>$c</code>) is at the end of the inserted command.
+	</li>
+	<li>
+		<code>$:</code> deletes all text (like <kbd>ctrl-U</kbd>).
+		It should be put at the very beginning of the line because everything before
+		<code>$:</code> will be discarded.
+	</li>
+	<li>
+		<code>$!</code> executes the command
+		like pressing the <kbd>&lt;enter&gt;</kbd> key immediately afterward.
+	</li>
+	<li>
+		<code>$~</code> disables the <code>Press enter to continue</code> prompt.
+		The control is returned to CLEX immediately after the command execution terminates provided that:
+		<ul>
+			<li>the command has not been modified; and</li>
+			<li>the command terminates successfully (exit code zero).</li>
+		</ul>
+	</li>
+</ul>
+<div>
+<strong>CAUTION:</strong> <code>$!</code> allows automatic execution of commands. Use it carefully:
+</div>
+<ul>
+	<li>combine it with <code>$:</code> in order to obtain full control over the command line</li>
+	<li>don't use it for destructive actions like deleting data, etc.</li>
+</ul>
+<div>
+Automatic execution with <code>$!</code> implies a check for a <code>rm</code> command
+and suppresses warning about a long command line. See the <a href="notify.html">notification panel</a>
+for more information on this.
+</div>
+
+</body>
+</html>

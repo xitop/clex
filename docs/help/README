@@ -1,0 +1,21 @@
+CLEX File Manager HTML documentation
+====================================
+
+This HTML documentation can be converted to a CLEX help-file using
+the html2help (or H2H) utility available upon request.
+
+The on-line help slightly differ from the HTML documentation and this
+is why the H2H supports limited set of preprocessing commands which
+allow to include or exclude parts of the HTML document.
+
+
+<!-- H2H!hide -->
+	this HTML code is visible in a browser,
+	but does not appear in the help-file
+<!-- H2H!show -->
+
+
+<!-- H2H!only
+	this HTML code is not visible in a browser,
+	but appears in the help-file
+H2H!only -->

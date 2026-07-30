@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>File panel - introduction</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>File panel - introduction</h1>
+<!-- H2H!show -->
+
+<p>
+Working with the file panel is the basic operation mode. You can inspect files,
+change directories, create commands in the command line and execute them.
+</p>
+
+<!-- H2H!hide -->
+<div><br>This is the file panel:<br>
+<img src="file_panel.png" alt="screenshot" width="468" height="321"></div>
+<!-- H2H!show -->
+
+<p>
+You can see <a href="2dirs.html">two directory names</a> on the top of the screen:
+the current working directory on the left and the secondary working directory on the right.
+</p>
+
+<p>
+The contents of the current working directory are listed in the file panel on the screen.
+One file is highlighted with the cursor bar. It is called the <em>current file</em>.
+Additional information about it is displayed in the info line.
+</p>
+
+<p>
+The layout of the file panel screen is configurable. The following data may be shown in the listing of files
+or in the info line:
+</p>
+<ul>
+	<li>name of the file</li>
+	<li>where the symbolic link points to (links only)</li>
+	<li>time of last modification</li>
+	<li>time of last file access</li>
+	<li>time of last inode change</li>
+	<li>size in bytes, KB, or MB or device minor and major numbers (devices only)</li>
+	<li>whether it is a symbolic link (indicated by <code>-&gt;</code> )</li>
+	<li>type of file:
+		<ul>
+			<li><small>(none)</small> - plain file</li>
+			<li><code>exec</code> - plain file, executable</li>
+			<li><code>suid</code> - executable file with set-UID</li>
+			<li><code>Suid</code> - set-UID file owned by root</li>
+			<li><code>sgid</code> - executable file with set-GID</li>
+			<li><code>/DIR</code> - directory</li>
+			<li><code>/MNT</code> - directory, active mount point</li>
+			<li><code>Bdev</code> - block device</li>
+			<li><code>Cdev</code> - character device</li>
+			<li><code>FIFO</code> - FIFO (also known as named pipes)</li>
+			<li><code>SOCK</code> - socket</li>
+			<li><code>spec</code> - special file, i.e. anything else</li>
+			<li><code>??</code> - type could not be determined due to
+				missing access rights or other error</li>
+		</ul>
+	</li>
+	<li>whether the file is selected (indicated by <code>*</code>)</li>
+	<li>permission bits (as octal number and/or as a string)</li>
+	<li>owner and group</li>
+	<li>number of hard links or an indicator of multiple links</li>
+</ul>
+
+<p>
+The number of selected files (if any) is shown in the panel frame along with the line numbers.
+</p>
+
+<p>
+The command line occupies only a few lines on the screen, but it can contain many lines of text.
+Here you type and edit commands to be executed. The prompt is configurable.
+</p>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li><code>/DIR</code> and <code>/MNT</code> - CLEX will not detect mount points
+		if the mounted file hierarchy resides on the same device
+		(<code>mount --bind</code> on Linux).
+	</li>
+	<li>Device minor numbers are shown in hexadecimal.</li>
+	<li>
+		Owner and group names are limited to 16 characters here. Visit the
+		<a href="user.html">user or group information panel</a> to see the full names.
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

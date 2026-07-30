@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Usage notes</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Usage notes</h1>
+<!-- H2H!show -->
+
+<h2>GENERAL USAGE</h2>
+<ul>
+	<li>
+		Special attention should be paid when dealing with filenames beginning with a hyphen.
+		For example the correct way to delete a file named <code>-i</code> is:
+		<blockquote><div>rm ./-i</div></blockquote>
+		or (on some systems)
+		<blockquote><div>rm -- -i</div></blockquote>
+		You can redefine commands F3 - F9 to include this end-of-options sign <code>--</code>.
+	</li>
+	<li>
+		If the screen appears distorted and redrawing (<kbd>ctrl-L</kbd>) does not solve the problem,
+		run this command:
+		<blockquote><div>tput reset</div></blockquote>
+	</li>
+	<li>
+		It is not possible to change a running CLEX's environment variables,
+		you must set them before starting CLEX.
+	</li>
+</ul>
+
+<h2>X WINDOW TERMINAL EMULATORS</h2>
+<h3>General tips</h3>
+<ul>
+	<li>
+		If you cannot see the output of executed commands on some X terminal emulators,
+		try disabling scrolling.
+	</li>
+	<li>
+		In the past, there were several issues with some terminal
+		emulators. Please make sure you are not using an outdated version of a terminal
+		emulator.
+	</li>
+</ul>
+<h3>XTERM</h3>
+<ul>
+	<li>
+		If you want your xterm to display highlighted text in color,
+		put these lines to your <code>.Xresources</code> file:
+		<blockquote><div>
+		XTerm*colorBD: blue3<br>
+		XTerm*colorBDMode: true
+		</div></blockquote>
+		Pick your own color instead of <code>blue3</code> and don't forget to run:
+		<blockquote><div>xrdb -merge .Xresources</div></blockquote>
+		after each change.
+	</li>
+	<li>
+		If you experience problems with the Alt key, add this line:
+		<blockquote><div>
+		XTerm*eightBitInput: false
+		</div></blockquote>
+		run <code>xrdb</code> as mentioned above.
+	</li>
+</ul>
+<h3>KDE Konsole</h3>
+<ul>
+	<li>
+		Konsole does not report a right mouse button double click properly.
+		Problem noted on KDE 4.2.2, and is still not fixed on 4.5.5.
+		Only left handers are affected by this bug.
+	</li>
+	<li>
+		To display the highlighted text in color in <code>Konsole</code> you
+		have to change the <code>Foreground (Intense)</code> color of the current scheme.
+		The procedure differs between versions. Start with <code>Settings</code> from the menu.
+	</li>
+</ul>
+
+</body>
+</html>

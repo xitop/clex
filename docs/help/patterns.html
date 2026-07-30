@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Pattern matching</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Pattern matching</h1>
+<!-- H2H!show -->
+
+<p>
+Patterns specify filenames. This concept (sometimes called globing
+or wildcard matching) is used in virtually all command line shells (e.g. 
+<code>sh</code>, <code>ksh</code>, <code>bash</code> or <code>csh</code>).
+See the related documentation for more information.
+</p>
+
+<h3>Wildcards</h3>
+<table class="tab">
+	<tr><td><code>?</code></td><td>matches any single character</td></tr>
+	<tr><td><code>*</code></td><td>matches any string (zero or more characters)</td></tr>
+	<tr>
+		<td><code>[expr]</code></td>
+		<td>
+			matches a single character listed in the
+			bracket expression. The expression may also
+			contain:
+			<ul>
+				<li>ranges like <code>0-9</code> or <code>a-f</code></li>
+			</ul>
+			and - depending on the library function support:
+			<ul>
+				<li>character classes like <code>[:digit:]</code> or <code>[:lower:]</code></li>
+				<li>equivalence class expressions like <code>[=a=]</code></li>
+				<li>collating symbols like <code>[.a-acute.]</code></li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td><code>[!expr]</code></td>
+		<td>matches a single character NOT matched by <code>[expr]</code></td>
+	</tr>
+</table>
+
+<h3>Quoting</h3>
+<table class="tab">
+	<tr>
+		<td><code>\c</code></td><td>character preceded by backslash loses its special meaning</td>
+	</tr>
+</table>
+
+<h3>Options</h3>
+<p>
+Following the concept of so-called hidden files, wildcards normally do not match a dot
+on the first position of a filename. This can be changed in the
+<a href="filter_opt.html">filter and pattern matching options panel</a>.
+</p>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>Pattern matching is case sensitive.</li>
+	<li>Patterns described here are not regular expressions.</li>
+	<li><code>[^expr]</code> is a deprecated form of <code>[!expr]</code> and should be avoided.</li>
+	<li>Handling of character ranges is affected by the <a href="locale.html">locale</a> setting.</li>
+	<li>
+		Names containing characters or byte sequences which are not valid
+		in the selected locale or encoding can be unmatchable.
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

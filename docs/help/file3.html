@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>File panel functions (3/3) - advanced editing and commands</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>File panel functions (3/3) - advanced editing and commands</h1>
+<!-- H2H!show -->
+
+<h3>Inserting (pasting) names into the command line</h3>
+<table class="keys">
+	<tr>
+		<td><kbd>&lt;tab&gt;</kbd></td>
+		<td>insert or complete (see the <a href="tab.html">tab key functions</a>)</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;F2&gt;</kbd></td><td>insert the name of the current file</td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>&lt;esc&gt;&nbsp;&lt;F2&gt;</kbd></td>
+		<td>
+			insert the names of all selected files<br>
+			Note: the current directory <code>.</code> (dot) and the parent directory <code>..</code> (dot-dot)
+			will be NOT inserted. This is a protective measure.
+			A <a href="notify.html">warning</a> is also given, but it can be disabled.
+		</td>
+	</tr>
+	<tr>
+		<td><kbd>ctrl-A</kbd></td>
+		<td>insert the full pathname of the current file: <code>/path/to/file</code></td>
+	</tr>
+	<tr>
+		<td><kbd>ctrl-E</kbd></td><td>insert the name of the <a href="2dirs.html">secondary working directory</a></td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;esc&gt;&nbsp;ctrl-E</kbd></td>
+		<td>insert the name of the <a href="2dirs.html">current working directory</a></td>
+	</tr>
+	<tr>
+		<td><kbd>ctrl-O</kbd></td><td>insert the target of a symbolic link</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;esc&gt;&nbsp;&lt;tab&gt;</kbd></td><td>go to the <a href="paste.html">completion/insertion panel</a>, a menu of related functions</td>
+	</tr>
+</table>
+<div>
+All inserted filenames are properly <a href="quoting.html">quoted</a>.
+</div>
+
+<h3>Filename completion</h3>
+<table class="keys">
+	<tr>
+		<td><kbd>&lt;tab&gt;</kbd></td>
+		<td>insert or complete, see the <a href="tab.html">tab key functions</a></td>
+	</tr>
+</table>
+
+<h3 id="cmd">Building commands</h3>
+<table class="keys">
+	<tr>
+		<td><kbd>&lt;F2&gt;</kbd></td><td>insert the name of the current file</td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>&lt;F3&gt;</kbd>&nbsp;-&nbsp;<kbd>&lt;F12&gt;</kbd></td>
+		<td>
+			insert a command:
+			<ul>
+				<li><kbd>&lt;F3&gt;</kbd> - view</li>
+				<li><kbd>&lt;F4&gt;</kbd> - edit</li>
+				<li><kbd>&lt;F5&gt;</kbd> - copy</li>
+				<li><kbd>&lt;F6&gt;</kbd> - move</li>
+				<li><kbd>&lt;F7&gt;</kbd> - make directory</li>
+				<li><kbd>&lt;F8&gt;</kbd> - delete</li>
+				<li><kbd>&lt;F9&gt;</kbd> - print</li>
+				<li><kbd>&lt;F10&gt;</kbd> to <kbd>&lt;F12&gt;</kbd> - user defined</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;esc&gt;&nbsp;&lt;Fx&gt;</kbd></td>
+		<td>
+			The commands above normally work with the current file. If you press <kbd>&lt;esc&gt;</kbd> before
+			<kbd>&lt;F2&gt;&nbsp;</kbd>-<kbd>&nbsp;&lt;F12&gt;</kbd> then they work with the selected files.
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>&lt;enter&gt;</kbd></td>
+		<td>
+			execute the command<br>
+			(Advanced users only: <a href="suspend.html">suspending the running command</a>)
+		</td>
+	</tr>
+</table>
+
+<h3 id="history">Command history</h3>
+<table class="keys">
+	<tr>
+		<td><kbd>ctrl-P</kbd></td><td>recall the previous command from the history list</td>
+	</tr>
+	<tr>
+		<td><kbd>ctrl-N</kbd></td><td>recall the next command</td>
+	</tr>
+	<tr>
+		<td><kbd>alt-P</kbd></td>
+		<td>complete the command, i.e. search the history for command(s) matching the text in the command line
+	</tr>
+	<tr>
+		<td><kbd>alt-H</kbd></td>
+		<td>go to the <a href="history.html">history panel</a></td>
+	</tr>
+		</table>
+</body>
+</html>

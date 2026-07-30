@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Compacted directory list</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Compacted directory list</h1>
+<!-- H2H!show -->
+
+<p>
+If there are two directories in the list named, for example, <code>/usr</code>
+and <code>/usr/X11R6/lib/X11/fonts/Type1</code>, the former is considered
+to be contained in the latter and only the longer name appears in the list.
+</p>
+
+<p>
+If you then choose <code>/usr/X11R6/lib/X11/fonts/Type1</code> from the list, CLEX splits
+it into components like this:</p>
+<blockquote><div>
+/usr/X11R6/lib/X11/fonts/Type1<br>
+/usr/X11R6/lib/X11/fonts<br>
+/usr/X11R6/lib/X11<br>
+/usr/X11R6/lib<br>
+/usr/X11R6<br>
+/usr<br>
+/
+</div></blockquote>
+<div>and the <code>/usr</code> directory reappears this way.</div>
+
+</body>
+</html>

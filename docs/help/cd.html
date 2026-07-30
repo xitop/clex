@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>The cd command</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>The <code>cd</code> command</h1>
+<!-- H2H!show -->
+
+<div>
+The <code>cd</code> command changes the current directory. Simply type
+<blockquote><div>cd /some/directory</div></blockquote>
+at the command line and press <kbd>&lt;enter&gt;</kbd>.
+</div>
+
+<p>
+To make this work, CLEX treats the <code>cd</code> command as a special case and processes it internally.
+</p>
+
+<p>
+It is required that the command is in the form of a single command and all special shell characters occurring
+in the directory name are quoted, otherwise the command will not be processed internally.
+Normal <a href="tilde.html">tilde substitution</a> is supported however.
+</p>
+
+<p>
+The <code>cd</code> command is an alternative to using the <a href="dir.html">directory panel</a>
+to change directories.
+</p>
+
+<h3>Examples:</h3>
+<div>
+This command
+<blockquote><div>cd /var/log</div></blockquote>
+will be processed internally and will change the working directory, while this command
+<blockquote><div>cd /dev ; ls -l lp*</div></blockquote>
+will be executed normally, i.e. by a separate process and
+the effect of <code>cd</code> will be lost after returning to CLEX.
+</div>
+
+<hr>
+<div>Notes:
+<ul>
+	<li>
+		The special shell characters mentioned above are listed here:
+		<a href="cfg_other.html#quote"><code>QUOTE</code> parameter</a>.
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

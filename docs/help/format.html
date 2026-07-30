@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Setting the date and time format</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Setting the date and time format</h1>
+<!-- H2H!show -->
+<p>
+Below is an extract from the <code>strftime</code> documentation.
+Make sure that the length of the resulting date or time string is constant and does not exceed 21 characters.
+</p>
+
+<h3>Day</h3>
+<table class="tab">
+	<tr><td><code>%d</code></td><td>the day of the month as a decimal number (01 to 31)</td></tr>
+	<tr><td><code>%e</code></td><td>like <code>%d</code>, but a leading zero is replaced by a space</td></tr>
+</table>
+
+<h3>Month</h3>
+<table class="tab">
+	<tr><td><code>%m</code></td><td>the month as a decimal number (01 to 12)</td></tr>
+	<tr><td><code>%b</code></td><td>the abbreviated month name</td></tr>
+</table>
+
+<h3>Year</h3>
+<table class="tab">
+	<tr><td><code>%Y</code></td><td>the year as a decimal number including the century</td></tr>
+	<tr><td><code>%y</code></td><td>like <code>%Y</code> but without a century (00 to 99)</td></tr>
+</table>
+
+<h3>Hour</h3>
+<table class="tab">
+	<tr><td><code>%H</code></td><td>the hour as a number using a 24-hour clock (00 to 23)</td></tr>
+	<tr><td><code>%k</code></td><td>like <code>%H</code>, but single digits are preceded by a blank</td></tr>
+	<tr><td><code>%I</code></td><td>the hour as a number using a 12-hour clock (01 to 12)</td></tr>
+	<tr><td><code>%l</code></td><td>(letter el) like <code>%I</code> but single digits are preceded by a blank</td></tr>
+	<tr>
+		<td><code>%p</code></td>
+		<td>
+			either <code>AM</code> or <code>PM</code> according to the given time value,
+			or the corresponding strings for the current locale. Noon is treated as
+			<code>pm</code> and midnight as <code>am</code></td>
+		</tr>
+	<tr><td><code>%P</code></td><td>like <code>%p</code> but in lowercase</td></tr>
+</table>
+
+<h3>Minutes and seconds</h3>
+<table class="tab">
+	<tr><td><code>%M</code></td><td>the minute as a decimal number (00 to 59)</td></tr>
+	<tr><td><code>%S</code></td><td>the second as a number (00 to 60)</td></tr>
+</table>
+
+<h3>Other</h3>
+<table class="tab">
+	<tr><td><code>%%</code></td><td>a literal % character</td></tr>
+</table>
+
+<h3>Examples</h3>
+<table class="tab">
+	<tr><td><code>%H:%M</code></td><td>13:59</td></tr>
+	<tr><td><code>%l:%M:%S%P</code></td><td>1:59:07pm</td></tr>
+</table>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>
+		The standard formats for the current locale are written to <a href="log.html">the log</a> when CLEX starts.
+		Those values are used if the configuration parameters are set to <code>AUTO</code>.
+	</li>
+	<li>See the <code>strftime</code> documentation for more information.</li>
+</ul>
+</div>
+
+</body>
+</html>

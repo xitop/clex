@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Notifications</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Notifications</h1>
+<!-- H2H!show -->
+
+<p>
+All notifications below are normally enabled. You might want to disable those that annoy you.
+</p>
+
+<dl>
+	<dt><code>Warning: rm command deletes files (not 100% reliable)</code></dt>
+	<dd>
+		If enabled, a warning is given before executing a command line containing
+		a <code>rm</code> (delete) command. <strong>CAUTION</strong>: It is not fully reliable,
+		because CLEX is not able to detect a <code>rm</code> command inside certain command
+		line constructs (e.g. in loops or in if-then clauses). See "aliasing"
+		in your shell documentation for an alternative.
+	</dd>
+
+	<dt><code>Warning: command line is too long to be displayed</code></dt>
+	<dd>
+		This warning is given before executing a command.
+		It indicates that the entire command line could not be shown because of its length.
+		This warning is suppressed during an automatic command execution.
+	</dd>
+
+	<dt><code>Reminder: selection marks on . and .. are not honored</code></dt>
+	<dd>
+		This option enables an informative message saying that selected directories
+		<code>.</code> and <code>..</code> were not automatically inserted.
+	</dd>
+
+	<dt><code>Reminder: selected file(s) vs. current file</code></dt>
+	<dd>
+		This message reminds that you have to press the <kbd>&lt;esc&gt;</kbd> key
+		before a <kbd>&lt;Fn&gt;</kbd> key when building a command for all selected files.
+		It should prevent mistakes when the current file is processed instead of selected file(s).
+	</dd>
+
+	<dt><code>Notice: file with a timestamp in the future encountered</code></dt>
+	<dd>
+		Check your system clock (date and time). If you are examining files on a medium
+		recorded on another computer, its clock was possibly not set properly
+		or was in another timezone.
+	</dd>
+</dl>
+
+</body>
+</html>

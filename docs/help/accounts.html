@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>User account data caching</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>User account data caching</h1>
+<!-- H2H!show -->
+
+<p>
+	In order to speed up its operations, CLEX internally caches the data about user and group accounts.
+	This data is mainly used to obtain the file owners' names. It does not change very often.
+</p>
+
+<p>
+The cache will be updated before reading contents of a directory, if:
+</p>
+<ul>
+	<li>modification of <code>/etc/passwd</code> or <code>/etc/group</code> is detected, or</li>
+	<li>cached data has expired after five minutes.</li>
+</ul>
+
+<p>
+	This means that if the account data is not stored in the standard system files, but e.g. in a
+	<code>NIS</code> network database, it could take few minutes before CLEX updates its cache.
+	To overcome this slight limitation you can press <kbd>&lt;esc&gt;</kbd> before <kbd>ctrl-R</kbd>
+	to force a refresh of the account data cache.
+</p>
+
+</body>
+</html>

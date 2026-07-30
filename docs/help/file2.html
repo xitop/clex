@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>File panel functions (2/3) - files and directories</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>File panel functions (2/3) - files and directories</h1>
+<!-- H2H!show -->
+
+<h3 id="chdir">Changing working directory</h3>
+<table class="keys">
+	<tr>
+		<td><kbd>alt-/</kbd></td><td>change into the root directory</td>
+	</tr>
+	<tr>
+		<td><kbd>alt-.</kbd></td><td>change into the parent <code>..</code> directory</td>
+	</tr>
+	<tr>
+		<td><kbd>alt-~</kbd> or <kbd>alt-`</kbd></td>
+		<td>change into your home directory</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;enter&gt;</kbd></td>
+		<td>several functions, see below in <a href="#misc">Miscellaneous</a></td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>alt-&lt;enter&gt;</kbd></td>
+		<td>change into a subdirectory, see below in <a href="#misc">Miscellaneous</a></td>
+	</tr>
+	<tr>
+		<td><kbd>alt-X</kbd></td>
+		<td>change into a subdirectory switching panels, see below in <a href="#misc">Miscellaneous</a></td>
+	</tr>
+	<tr>
+		<td><kbd>alt-W</kbd></td>
+		<td>go to the <a href="dir.html">directory panel</a></td>
+	</tr>
+	<tr>
+		<td><kbd>alt-K</kbd></td>
+		<td>go to the <a href="bookmarks.html">bookmark panel</a></td>
+	</tr>
+</table>
+<p>
+See also: the <a href="cd.html">cd command</a>.
+</p>
+
+<h3 id="select">Selecting files</h3>
+<p>
+Selected names are to be used in commands, see the section
+<a href="file3.html#cmd">building commands</a> in advanced editing.
+</p>
+<table class="keys">
+	<tr>
+		<td><kbd>&lt;insert&gt;</kbd> or <kbd>ctrl-T</kbd></td>
+		<td>select/deselect the current file</td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>&lt;esc&gt;&nbsp;&lt;insert&gt;</kbd> or <kbd>&lt;esc&gt;&nbsp;ctrl-T</kbd>
+		</td>
+		<td>
+			select/deselect the current file and all files listed above it that are in the
+			same selection state. This is used to select/deselect a block: select the
+			first file with <kbd>&lt;insert&gt;</kbd> and then select the last one
+			with <kbd>&lt;esc&gt;&nbsp;&lt;insert&gt;</kbd>
+		</td>
+	<tr>
+		<td><kbd>alt-+</kbd></td>
+		<td><a href="select.html">select files</a> that match pattern</td>
+	</tr>
+	<tr>
+		<td><kbd>alt--</kbd></td>
+		<td><a href="select.html">deselect files</a> that match pattern</td>
+	</tr>
+	<tr>
+		<td><kbd>alt-*</kbd></td>
+		<td>invert selection</td>
+	</tr>
+	<tr>
+		<td><kbd>alt-=</kbd></td>
+		<td><a href="compare.html">compare files</a> in both directories</td>
+	</tr>
+</table>
+
+<h3 id="misc">Miscellaneous</h3>
+<table class="keys">
+	<tr>
+		<td><kbd>ctrl-R</kbd></td>
+		<td>Re-read the contents of the directory, i.e. refresh the file panel.</td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>&lt;esc&gt;&nbsp;ctrl-R</kbd></td>
+		<td>
+			Like <kbd>ctrl-R</kbd>, but an update of cached user account data is forced.
+			
+			In most cases you do not need this function (see <a href="accounts.html">details</a>).
+		</td>
+	</tr>
+	<tr>
+		<td><kbd>ctrl-X</kbd></td>
+		<td>Exchange primary &lt;--&gt; secondary panel, i.e. switch the
+			<a href="2dirs.html">working directories</a>.</td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>&lt;enter&gt;</kbd>
+		</td>
+		<td>
+			Three functions:
+			<ul>
+				<li>
+					if there is a command in the command line:<br>
+					<kbd>&lt;enter&gt;</kbd> executes the current command
+				</li>
+				<li>
+					otherwise if current file is a directory:<br>
+					<kbd>&lt;enter&gt;</kbd> changes into this directory
+				</li>
+				<li>
+					otherwise if current file is executable:<br>
+					<kbd>&lt;enter&gt;</kbd> inserts <code>./cmdfile</code> into the command line
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>alt-&lt;enter&gt;</kbd></td>
+		<td>
+			If the current file is a directory, change into this directory.
+			Of the four functions above this is the second one, useful if the command line is not empty.
+	<tr>
+	<tr>
+		<td valign="top"><kbd>alt-E</kbd></td>
+		<td>
+			Display the contents of the current file in the <a href="preview.html">preview panel</a>, if possible.
+	<tr>
+		<td valign="top"><kbd>alt-X</kbd></td>
+		<td>
+			If the current file is a directory, change into this directory, but show the contents in the other file panel.
+			The original file panel becomes secondary and remains unchanged. This allows one to change back into
+			the original directory simply by switching panels (<kbd>ctrl-X</kbd>).
+		</td>
+	</tr>
+	<tr>
+		<td valign="top"><kbd>ctrl-D</kbd></td>
+		<td>
+			Bookmark the current directory. This function appends the current directory to the list of bookmarks
+			and opens the <a href="bookmarks.html">bookmark panel</a>.
+		</td>
+	</tr>
+	<tr>
+		<td><kbd>alt-R</kbd></td>
+		<td><a href="rename.html">Rename</a> the current file.</td>
+	</tr>
+</table>
+
+</body>
+</html>

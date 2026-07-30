@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>List of configurable parameters 1/3</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>List of configurable parameters 1/4</h1>
+<!-- H2H!show -->
+
+<p>The parameters below affect the program's visual appearance.</p>
+
+<p>
+<strong>Warning</strong>: do not change parameters you do not understand. If you are unsure,
+test the new value before saving the configuration. If any problems occur, reset the parameter
+to standard value.
+</p>
+
+<dl>
+	<dt><code>FRAME</code></dt>
+	<dd>
+		Choose a character for drawing horizontal lines on the screen.
+		Try all settings and select which one looks best on your screen.
+		The option <code>line graphics</code> does not work in some terminals or with some fonts.
+	</dd>
+
+	<dt><code>CMD_LINES</code></dt>
+	<dd>Number of lines (2-4) that the command or input line occupies on the screen.</dd>
+
+	<dt><code>XTERM_TITLE</code></dt>
+	<dd>
+		Change the title of the terminal window when CLEX runs in an X Window environment.
+		CLEX tries to restore the original title at exit.
+		<br>
+		The title is:
+		<ul>
+			<li><code>clex: user@host</code> - ready</li>
+			<li><code>clex: command</code> - executing a command</li>
+			<li><code>[clex: command]</code> - execution is finished</li>
+		</ul>
+	</dd>
+
+	<dt><code>PROMPT</code></dt>
+	<dd>
+		Command line prompt. The default value is (without the quotes):
+		<blockquote><div>'$s $p '</div></blockquote>
+		Following substitutions are performed:
+		<ul>
+			<li><code>$h</code> --&gt; hostname
+			<li><code>$p</code> --&gt; prompt character according to the shell (e.g. $ or #)
+			<li><code>$s</code> --&gt; shell name
+			<li><code>$u</code> --&gt; username
+			<li><code>$w</code> --&gt; current working directory (abbreviated)
+			<li><code>$$</code> --&gt; literal $
+		</ul>
+		If you have superuser privileges, the word <code>ROOT</code> is included with
+		the prompt to remind you to be careful. This is a security feature that cannot
+		be turned off.
+	</dd>
+	
+	<dt><code>LAYOUT1</code></dt>
+	<dd>
+		File panel layout. Format is:
+		<blockquote><div>&lt;file_panel_fields&gt;|&lt;info_line_fields&gt;</div></blockquote>
+		where <code>fields</code> is a <a href="layout.html">list of fields</a> to be displayed.
+	</dd>
+
+	<dt><code>LAYOUT2</code></dt>
+	<dd>Alternative <a href="layout.html">file panel layout</a>.</dd>
+	
+	<dt><code>LAYOUT3</code></dt>
+	<dd>Alternative <a href="layout.html">file panel layout</a>.</dd>
+
+	<dt><code>LAYOUT_ACTIVE</code></dt>
+	<dd>Pick one of the layouts 1 to 3.</dd>
+	
+	<dt><code>KILOBYTE</code></dt>
+	<dd>
+		Select your preferred definition of one kilobyte (megabyte, etc.)
+		The filesize is displayed according to this parameter.
+ 		<ul>
+			<li><code>1000</code> - the prefix kilo means thousand</li>
+			<li>
+				<code>1024</code> - for computer professionals one kilobyte is traditionally 1024 bytes.
+				This is now written as 1 KiB according to the IEC International Standard 60027-2.
+			</li>
+		</ul>
+	</dd>
+
+	<dt><code>TIME_FMT</code></dt>
+	<dd>
+		<a href="format.html">strftime-style time format string</a>
+		or AUTO for autodetect.
+	</dd>
+
+	<dt><code>DATE_FMT</code></dt>
+	<dd>
+		<a href="format.html">strftime-style date format string</a>
+		or AUTO for autodetect.
+	</dd>
+
+	<dt><code>TIME_DATE</code></dt>
+	<dd>
+		The short format displays time of the day for recent timestamps
+		(i.e. same day or not more than 16 hours ago). Otherwise the date is displayed.
+		The two long formats display both date and time, date first or time first.
+	</dd>
+</dl>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>
+		The autodetect feature of <code>TIME_FMT</code> and <code>DATE_FMT</code>
+		requires a properly set <a href="locale.html">locale</a>.
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

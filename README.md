@@ -25,6 +25,9 @@ to be executed by the shell (there are no built-in commands).
 CLEX is easily configurable and all its features are explained
 in the on-line help.
 
+For more information please visit the [CLEX web page](https://xitop.github.io/clex)
+with screenshots and help.
+
 ## License
 
 CLEX is free software without warranty of any kind; see the

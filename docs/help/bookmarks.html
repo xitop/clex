@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Bookmark panel</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Bookmark panel</h1>
+<!-- H2H!show -->
+
+<p>
+Bookmarks are a list of stored directory names.
+To change directory, select one of your bookmarks and press <kbd>&lt;enter&gt;</kbd>.
+</p>
+
+<p>
+Two bookmarks have special meaning when CLEX starts. If a bookmark named <code>DIR1</code> exists,
+this directory will become the new working directory and will be listed in the primary panel.
+If a bookmark named <code>DIR2</code> exists, that directory will become the working directory
+of the secondary panel.
+</p>
+
+<p>
+If <code>DIR1</code> is not defined, CLEX will start normally in the current working directory.
+If <code>DIR2</code> is not defined, the home directory will be displayed in the secondary panel.
+</p>
+
+<p>
+There is also a set of maintenance functions in the panel.
+</p>
+<table class="keys">
+	<tr>
+		<td><kbd>D</kbd></td><td>move the entry down</td>
+	</tr>
+	<tr>
+		<td><kbd>U</kbd></td><td>move the entry up</td>
+	</tr>
+	<tr>
+		<td><kbd>N</kbd></td><td>insert new entry (to appear below the cursor bar)</td>
+	</tr>
+	<tr>
+		<td><kbd>P</kbd></td><td><a href="bookmarks_edit.html">edit properties</a></td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;del&gt;</kbd></td><td>remove the bookmark</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;enter&gt;</kbd></td><td>change into the bookmarked directory</td>
+	</tr>
+</table>
+
+<p>
+After finishing your work, select <code>Exit this panel</code>. If you do not
+want to save the bookmark list, choose <code>Cancel</code> instead.
+</p>
+
+<p>
+<a href="filter.html">Filtering</a> (<kbd>ctrl-F</kbd>) is supported in this panel, but
+the maintenance functions are disabled while a panel filter is active.
+</p>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>The current directory can be bookmarked from the file panel with <kbd>ctrl-D</kbd>.</li>
+	<li>Bookmarks are stored in a file named <code>~/.config/clex/bookmarks</code>.</li>
+	<li>
+		Concurrent CLEX sessions: bookmarks changed in another session are loaded 
+		automatically every time the bookmark panel is entered.
+	</li>
+	<li>
+		Both <code>DIR1</code> and <code>DIR2</code> should be absolute directory names
+		starting with a slash (<code>/</code>).
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

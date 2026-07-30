@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Inserting special characters</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Inserting special characters</h1>
+<!-- H2H!show -->
+
+<p>
+After pressing the <kbd>alt-I</kbd> key, one or more characters (space separated if necessary)
+can be entered using any of the following notations for special characters:
+</p>
+<dl>
+	<dt><code>^X</code> for ctrl-X</dt>
+	<dd>
+		This is written as a two character combination:
+		the ^ character followed by a letter from A to Z (in upper or lower case).
+	</dd>
+	<dt><code>DDD</code> for a decimal value</dt>
+	<dd>
+		Any combinations of digits 0 to 9 is replaced by a character
+		with the corresponding code.
+	</dd>
+	<dt><code>\xHHH</code> or <code>0xHHH</code> or <code>U+HHH</code> for a hexadecimal value</dt>
+	<dd>
+  		A two character prefix followed by a hex number is replaced by a character
+  		with the corresponding code. These three prefixes are based on various standards
+		(e.g <code>U+</code> for Unicode code point) and all have the same meaning in CLEX.
+	</dd>
+</dl>
+
+<p>
+Null code character cannot be inserted. CLEX does not check if the code is valid in the current encoding.
+<strong>WARNING:</strong> Inserting characters with invalid codes might have undesired effects.
+</p>
+
+<h3>Examples:</h3>
+<ul>
+	<li>^C - <code>ctrl-C</code>, ASCII code 3</li>
+	<li>98 - letter <code>b</code> - ASCII code 98</li>
+	<li>\x62 - letter <code>b</code> as above</li>
+	<li>
+		U+3c8 - Greek letter
+<!-- H2H!hide -->
+	 	<code>ψ</code>
+<!-- H2H!show -->
+	 	(psi) (Unicode only)
+ 	</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Functions of the tab key</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Functions of the &lt;tab&gt; key</h1>
+<!-- H2H!show -->
+
+<p>
+The <kbd>&lt;tab&gt;</kbd> key has two major functions in the file panel:
+</p>
+<ol>
+	<li>
+		If the cursor stands within or immediately after a word,
+		<kbd>&lt;tab&gt;</kbd> attempts to <a href="completion.html">complete it</a>.
+	</li>
+	<li>
+		Otherwise (if there is nothing to complete), <kbd>&lt;tab&gt;</kbd> inserts text into the command line:
+		<ul>
+			<li>
+				if a command name is expected (it is the first word in a
+				command) and the current file is an executable file or a directory,
+				then it inserts:
+				<blockquote><div>./executable</div></blockquote> or
+				<blockquote><div>directory/</div></blockquote>
+			</li>
+			<li>
+				if an argument is expected (not the first word in a command), it inserts the name
+				of the current file:
+				<blockquote><div>file</div></blockquote>
+			</li>
+		</ul>
+	</li>
+</ol>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>If you just want to insert filename(s) without any completion, you might use the <kbd>&lt;F2&gt;</kbd> key.</li>
+	<li>All inserted filenames are correctly <a href="quoting.html">quoted</a>.</li>
+</ul>
+</div>
+
+</body>
+</html>

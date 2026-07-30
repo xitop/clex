@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Configuring the file panel layout</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Configuring the file panel layout</h1>
+<!-- H2H!show -->
+
+<p>
+The file panel layout can be configured to match individual needs.
+The <code>LAYOUT</code> parameter is a string of the form:
+</p>
+<blockquote><div>file_panel_fields|info_line_fields</div></blockquote>
+<div>
+where <code>..._fields</code> is a list of fields to be displayed, each
+field is represented by a dollar sign followed by a single character:
+</div>
+<table class="tab">
+	<tr><td><code>$a</code></td><td>time/date of last access</td></tr>
+	<tr><td><code>$d</code></td><td>time/date of last modification</td></tr>
+	<tr>
+		<td><code>$g</code></td>
+		<td>
+			file age, i.e. the time elapsed since the last modification is displayed
+			for files not older than 100 hours
+		</td>
+	</tr>
+	<tr><td><code>$i</code></td><td>time/date of last inode change</td></tr>
+	<tr><td><code>$l</code></td><td>number of hard links</td></tr>
+	<tr>
+		<td><code>$L</code></td>
+		<td><code>LNK</code> mark displayed if there are multiple hard links, otherwise this field is blank</td>
+	</tr>
+	<tr><td><code>$m</code></td><td>file mode as an octal number</td></tr>
+	<tr>
+		<td><code>$M</code></td>
+		<td>like <code>$m</code>, but blank for normal file modes (i.e. mode 0666 or 0777 with umask value bits cleared)</td>
+	</tr>
+	<tr><td><code>$o</code></td><td>owner (user:group)</td></tr>
+	<tr><td><code>$p</code></td><td>file mode as a string of permission bits</td></tr>
+	<tr><td><code>$P</code></td><td>like <code>$p</code>, but blank for normal file modes</td></tr>
+	<tr>
+		<td><code>$s</code>,<code>$r</code></td>
+		<td>
+			file size:
+			<ul>
+			<li><code>$r</code> - short form, up to 3 digits</li>
+			<li><code>$s</code> - long form,  up to 7 digits</li>
+			</ul>
+			Note: only one form may appear in a layout.
+		</td>
+	</tr>
+	<tr>
+		<td><code>$S</code>,<code>$R</code></td>
+		<td>like <code>$s</code> and <code>$r</code>, but blank for directories</td>
+	</tr>
+	<tr><td><code>$t</code></td><td>type of file</td></tr>
+	<tr><td><code>$&gt;</code></td><td><code>-&gt;</code> is displayed for symbolic links</td></tr>
+	<tr><td><code>$*</code></td><td>selection mark</td></tr>
+	<tr><td><code>$$</code></td><td>literal dollar sign <code>$</code></td></tr>
+	<tr><td><code>$|</code></td><td>literal vertical bar <code>|</code></td></tr>
+</table>
+
+<p>
+The filename is always displayed after all defined file panel fields.
+</p>
+
+<p>
+Normal text can be inserted into the list of fields as well, e.g.:
+</p>
+<blockquote><div>links:$l mode:$m<br>$m($p)</div></blockquote>
+
+<p>
+There are three predefined layouts in the standard configuration. <code>LAYOUT1</code> is detailed,
+<code>LAYOUT2</code> is brief, and the <code>LAYOUT3</code> is similar to the <code>ls -l</code> output:
+</p>
+<blockquote><div>
+	LAYOUT1 $d $S $&gt;$t $M $*|$p $o $L<br>
+	LAYOUT2 $d $R $t $*|$p $o<br>
+	LAYOUT3 $p $o $s $d $&gt;$t $*|mode=$m atime=$a ctime=$i links=$l
+</div></blockquote>
+
+<p>
+All three <code>LAYOUT</code>s can be altered and one of them is selected with the <code>LAYOUT_ACTIVE</code>
+configuration parameter to act as the file panel layout.
+</p>
+
+<hr>
+<div>
+Notes:
+<ul>
+	<li>
+		Numbers and dates are automatically aligned to the proper field margin, e.g.:
+		<ul>
+			<li><code>$d $s</code> - aligned to the right</li>
+			<li><code>mtime=$d size=$s</code> - aligned to the left</li>
+		</ul>
+	</li>
+	<li>
+		You can omit the selection mark <code>$*</code> if you accept the
+		highlighting as a sufficient indicator.
+	</li>
+	<li><code>$L</code> field is left blank for all directories as they always have multiple hard links.</li>
+</ul>
+</div>
+
+</body>
+</html>

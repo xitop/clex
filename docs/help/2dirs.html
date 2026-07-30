@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Working directories</title>
+	<link rel="stylesheet" href="help.css" type="text/css">
+</head>
+
+<body>
+<!-- H2H!hide -->
+<p><a href="MAIN.html">Table of Contents</a></p>
+
+<h1>Working directories</h1>
+<!-- H2H!show -->
+
+<p>
+There are two file panels and two corresponding working directories:
+</p>
+<ol>
+	<li>
+		The contents of the normal <em>current working directory</em> are listed in the <em>primary
+		file panel</em> on the screen.
+	</li>
+	<li>
+		The so-called <em>secondary working directory</em> is used as a destination
+		for copy and move commands. It is associated with the <em>secondary file pane</em>l
+		which is not displayed on the screen.
+	</li>
+</ol>
+
+<p>
+Initial working directories can be set as <a href="bookmarks.html">bookmarks</a>.
+<p>
+
+<!-- H2H!hide -->
+<div><img src="2dirs.png" width="468" height="122" alt="screenshot"></div>
+<!-- H2H!show -->
+
+<p>Overview of related functions:</p>
+<table class="keys">
+	<tr>
+		<td><kbd>ctrl-X</kbd></td>
+		<td>exchange primary and secondary panels</td>
+	</tr>
+	<tr>
+		<td><kbd>alt-=</kbd></td>
+		<td>
+			<a href="compare.html">compare files</a> in both directories
+			 and mark differences
+		</td>
+	</tr>
+	<tr>
+		<td><kbd>ctrl-E</kbd></td>
+		<td>insert the name of the secondary working directory</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;esc&gt;&nbsp;ctrl-E</kbd></td>
+		<td>insert the name of the current working directory</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;F5&gt;</kbd></td>
+		<td>
+			mapped to <code>COPY</code> and will copy the files
+			from the current directory to the secondary directory
+		</td>
+	</tr>
+	<tr>
+		<td><kbd>&lt;F6&gt;</kbd></td>
+		<td>
+			as for <kbd>&lt;F5&gt;</kbd> but mapped to <code>MOVE</code>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>
